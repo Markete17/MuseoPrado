@@ -101,3 +101,17 @@ tr:nth-child(even) {
 .title{
   text-align: center;
 }
+
+#cita{
+  display: flex;
+  justify-content: center;
+}
+#textcita{
+margin-left: 0%;
+margin-right: 10%;
+}
+
+#imagecita img {
+  width: 40%;
+  margin-left: 40%;
+}
