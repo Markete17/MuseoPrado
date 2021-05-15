@@ -1,56 +1,125 @@
 <!DOCTYPE html>
 <html>
-  <title>Museo del Prado</title>
-  <meta name="google" content="notranslate">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <head>
-      <link rel="stylesheet" href="css/index.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      
-      <script src="js/index.js"></script>
-  </head>
-  <header>
-    
-  </header>
-  <body id="top">
-    <div id="content-wrapper">
-      <header>Museo del prado</header>
-          <blockquote cite="https://akifrases.com/frase/195934#:~:text=Frase%20de%20Orhan%20Pamuk,tiempo%20se%20transforma%20en%20espacio.%E2%80%9D&text=%E2%80%9CEl%20amor%20es%20el%20anhelo,el%20mismo%20lugar%20que%20ella.&text=Biografia%3A%20Ferit%20Orhan%20Pamuk%20es,Premio%20Nobel%20de%20Literatura%202006.">
-            <p>“Los museos de verdad son los sitios en los que el tiempo se transforma en espacio.”</p>
-            <p><b>― Orhan Pamuk</b></p>
-          </blockquote>
+<title>Museo del Prado</title>
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<!--https://codepen.io/DougCrossDesign/pen/RjyaYZ-->
+<head>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<div id="accessPanel" class="accessibility-panel" accesskey="q">
+  <button id="toggleAccessPanel">
+    <span class="ada-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M19.604 2.562l-3.346 3.137c-1.27-.428-2.686-.699-4.243-.699-7.569 0-12.015 6.551-12.015 6.551s1.928 2.951 5.146 5.138l-2.911 2.909 1.414 1.414 17.37-17.035-1.415-1.415zm-6.016 5.779c-3.288-1.453-6.681 1.908-5.265 5.206l-1.726 1.707c-1.814-1.16-3.225-2.65-4.06-3.66 1.493-1.648 4.817-4.594 9.478-4.594.927 0 1.796.119 2.61.315l-1.037 1.026zm-2.883 7.431l5.09-4.993c1.017 3.111-2.003 6.067-5.09 4.993zm13.295-4.221s-4.252 7.449-11.985 7.449c-1.379 0-2.662-.291-3.851-.737l1.614-1.583c.715.193 1.458.32 2.237.32 4.791 0 8.104-3.527 9.504-5.364-.729-.822-1.956-1.99-3.587-2.952l1.489-1.46c2.982 1.9 4.579 4.327 4.579 4.327z" />
+      </svg>
+    </span>
 
-        <img src="img/home.jpg" alt="Museo del Prado">
-      
-      
-      <!--navigation-->
-      <h1 id="menu" class="center">Menu</h1>
-      <nav>
-        <ul class="menu">
-          <li><a title="Título de la sección 1" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
-          <li><a title="Título de la sección 2" href="#horario"><b>2.Ir a Horario</b></a></li>
-          <li><a title="Título de la sección 3" href="#skin"><b>3.Ir a Precios</b></a></li>
-          <li><a title="Título de la sección 4" href="#weightLoss">4.Weight Loss</a></li>
-          <li><a title="Título de la sección 5" href="#digestion">5.Digestion</a></li>
-          <li><a title="Título de la sección 6" href="#breath">6.Clean Breath</a></li>
-          <li><a title="Título de la sección 7" href="#kidney">7.Prevents Kidney Stones</a></li>
-        </ul>
-      </nav>
-      
-      <!--content-->
-      <div id="presentacion">
-        <h2 class="center"><span>1. </span>Presentación</h1>
+    <span class="toggleAccessPanelLabelInstruct">
+      <span class="toggleAccessPanelLabel" aria-label="Opciones de Accesibilidad Visual">Opciones de Accesibilidad Visual</span>
+      <span class="toggleAccessPanelInstructions">(Pulsa la tecla Q)</span>
+    </span>
+  </button>
+  <h4>Opciones de Accesibilidad Visual</h4>
+  <div class="button-group">
+    <p><b>Pulsa para cerrar el menu.</b></p>
+    <button id="closeAccessPanel">Cerrar Opciones (ESC)</button>
+  </div>
+  <div class="button-group">
+    <p><b>Pulsa para cambiar la letra.</b></p>
+    <button id="fontSwap" accesskey="a">Cambiar letra (A)</button>
+  </div>
+  <div class="button-group">
+    <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
+    <button id="fontDecrease" accesskey="s">Disminuir (S)</button>
+    <button id="fontIncrease" accesskey="d">Aumentar (D)</button>
+  </div>
+  <div class="button-group">
+    <p><b>Pulsa para subrayar los enlaces.</b></p>
+    <button id="highlightLinks" accesskey="h">Subrayar enlaces (H)</button>
+  </div>
+
+  <div class="button-group">
+    <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
+    <button id="reset" accesskey="f">Reset (F)</button>
+    <button id="remove" accesskey="g">Remove (G)</button>
+  </div>
+  <div class="contrastTextChange button-group">
+    <p><b>Cambia el contraste del texto.</b></p>
+    <button id="contrastTextLighten" accesskey="z">Iluminar (Z)</button>
+    <button id="contrastTextDarken" accesskey="x">Oscurecer (X)</button>
+  </div>
+  <div class="rangeSliders">
+    <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+    <p>Verde:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+    <p>Azul:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+  </div>
+  <div class="contrastBgChange button-group">
+    <p><b>Cambia el contraste del fondo.</b></p>
+    <button id="contrastBgLighten" accesskey="c">Iluminar (C)</button>
+    <button id="contrastBgDarken" accesskey="v">Oscurecer (V)</button>
+  </div>
+  <div class="rangeSliders">
+    <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
+    <p>Verde:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="195">
+    <p>Azul:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="253">
+  </div>
+  <div class="contrastBgArticleChange button-group">
+    <p><b>Cambia el contraste del artículo.</b></p>
+    <button id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="k">Iluminar (K)</button>
+    <button id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="l">Oscurecer (L)</button>
+  </div>
+  <div class="rangeSliders">
+    <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+    <p>Verde:</p> <input id="rangeArticle2" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+    <p>Azul:</p> <input id="rangeArticle3" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+  </div>
+</div>
+<!-- Accessibility Helper Panel - End -->
+
+<body>
+  <script src="js/index.js"></script>
+  <div id="content-wrapper">
+    <h1 class="title">Museo del prado</h1>
+    <blockquote cite="https://akifrases.com/frase/195934#:~:text=Frase%20de%20Orhan%20Pamuk,tiempo%20se%20transforma%20en%20espacio.%E2%80%9D&text=%E2%80%9CEl%20amor%20es%20el%20anhelo,el%20mismo%20lugar%20que%20ella.&text=Biografia%3A%20Ferit%20Orhan%20Pamuk%20es,Premio%20Nobel%20de%20Literatura%202006.">
+      <p>“Los museos de verdad son los sitios en los que el tiempo se transforma en espacio.”</p>
+      <p><b>― Orhan Pamuk</b></p>
+    </blockquote>
+    <img src="img/home.jpg" alt="Museo del Prado">
+
+
+    <!--navigation-->
+    <h1 id="menu" class="center">Menu</h1>
+    <nav>
+      <ul class="menu">
+        <li><a title="Título de la sección 1" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
+        <li><a title="Título de la sección 2" href="#horario"><b>2.Ir a Horario</b></a></li>
+        <li><a title="Título de la sección 3" href="#skin"><b>3.Ir a Precios</b></a></li>
+        <li><a title="Título de la sección 4" href="#weightLoss">4.Weight Loss</a></li>
+        <li><a title="Título de la sección 5" href="#digestion">5.Digestion</a></li>
+        <li><a title="Título de la sección 6" href="#breath">6.Clean Breath</a></li>
+        <li><a title="Título de la sección 7" href="#kidney">7.Prevents Kidney Stones</a></li>
+      </ul>
+    </nav>
+
+    <!--content-->
+    <div id="presentacion">
+      <h2 class="center"><span>1. </span>Presentación</h1>
         <p>Beth received 1<sup>st</sup> place in the 9<sup>th</sup> grade science competition.</p>
-        <a class="volver" title="Volver al menú" href="#menu">Volver al menú</a>
-      </div>
-      
-      <div id="horario">
-        <h2 class="center"><span>2. </span>Horario</h1>
-        <table summary="En la tabla se muestra el periodo de apertura de todos los días de la semana. Para los días que no son festivos, se puede apreciar que el horario es de 10:00 de la mañana a 20:00 de la noche excepto el domingo que el horario es de 10:00 de la mañana hasta las 17:00 de la tarde.
-        Por otra parte, para los días festivos, el horario es para todos los días de 10:00 de la mañana a 17:00 de la tarde. " 
-        style="overflow-x:auto;">
+        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+    </div>
+
+    <div id="horario">
+      <h2 class="center"><span>2. </span>Horario</h1>
+        <table
+          summary="En la tabla se muestra el periodo de apertura de todos los días de la semana. Para los días que no son festivos, se puede apreciar que el horario es de 10:00 de la mañana a 20:00 de la noche excepto el domingo que el horario es de 10:00 de la mañana hasta las 17:00 de la tarde.
+        Por otra parte, para los días festivos, el horario es para todos los días de 10:00 de la mañana a 17:00 de la tarde. "
+          style="overflow-x:auto;">
           <caption>Horario de apertura del Museo del Prado</caption>
           <thead>
             <tr>
@@ -87,51 +156,85 @@
             </tr>
           </tbody>
         </table>
-        <a class="volver" title="Volver al menú" href="#menu">Volver al menú</a>
-      </div>
-      
-      <div id="precios">
-        <h2 class="center"><span>3. </span>Precios</h1>
-        <p>Vitamin C found in lemons may help reduce skin wrinkling. A study published in the American Society for Clinical Nutrition concluded that people who consumed more vitamin C have less risk of wrinkled and dry skin.</p>
-  
-  <p>How water improves skin is controversial, but one thing is certain. If your skin loses moisture, it becomes dry and wrinkle-prone.</p>
-  
-  <p>Whether it’s better to apply moisturizer to the skin or drink more water isn’t clear, but UW Health recommends drinking at least eight glasses of water daily to stay hydrated and rid the skin of toxins.</p>
-   </div>
-      
-      <div id="weightLoss">
-        <h2><span>4.</span> It supports weight loss</h1>
-        <p>A study published in the Journal of Clinical Biochemistry and Nutrition showed that polyphenol antioxidants found in lemons significantly reduced weight gain caused by a high-fat diet in mice. In addition, insulin resistance was improved.</p>
-  
-  <p>While the same results need to be proven in humans, anecdotal evidence is strong that lemon water supports weight loss. Whether this is due to an increase in water intake and fullness or the lemons remains to be seen.</p>
-      </div>
-      
-      <div id="digestion">
-        <h2><span>5.</span> It aids digestion</h1>
-        <p>Some people drink lemon water as a daily morning laxative to help prevent constipation. Drinking warm or hot lemon water when you wake up may help get your digestive system moving.</p>
-  
-  <p>Ayurvedic medicine believes the sour lemon taste helps stimulate your “agni.” In Ayurveda, a strong agni jump-starts the digestive system, allowing you to digest food easily and helping prevent the buildup of toxins.</p>
-      </div>
-      
-      <div id="breath">
-        <h2><span>6.</span>It freshens breath</h1>
-        <p>Have you ever rubbed a lemon on your hands to remove a powerful stench? It’s thought to neutralize odors. The same folk remedy may apply to bad breath caused by eating foods with strong smells</p>
-  
-  <p>Keep your breath sweeter by drinking a glass of lemon water after meals and first thing in the morning. Lemon is thought to stimulate saliva, and water helps prevent a dry mouth, which leads to bad breath caused by excess bacteria growth.</p>
-      </div>
-      
-      <div id="kidney">
-        <h2><span>7.</span> It helps prevent kidney stones</h1>
-        <p>The citric acid in lemons may help prevent calcium kidney stones. UW Health recommends increasing citric acid intake to decrease your risk of getting new calcium stones. Drinking lemon water not only helps you get more citric acid, but also the water you need to prevent stones.</p>
-  
-  <p>Having 1/2 cup of lemon juice provides the same amount of citric acid you’d find in prescription varieties.</p>
-      </div>
-      
-      <br>
-      
+        <br>
+        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
     </div>
-    
-  
-  </body>
-  
+
+    <div id="precios">
+      <h2 class="center"><span>3. </span>Precios</h1>
+        <ul>
+            <li>
+              <p><b>Entrada general:</b> 15 euros.</p>
+            </li>
+            <li>
+              <p><b>Entrada reducida:</b> 7,50 euros.</p>
+            </li>
+            <li>
+              <p><b>Entrada general y un ejemplar <em>"La Guía del prado"</em>:</b> 24 euros.</p>
+            </li>
+            <li>
+              <p><b>Entrada gratuita:</b> 0 euros.</p>
+            </li>  
+          </li>
+          <li>  
+              <p><b>Entrada de grupo guiada:</b> 50 euros por persona.</p>
+            </li>  
+              <p><i>* Durante las dos últimas horas de apertura, reducción del 50% en el precio de la entrada individual que corresponda. Venta exclusiva en taquilla.</i></p>
+
+        </ul>
+        <br>
+        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+    </div>
+
+    <div id="weightLoss">
+      <h2><span>4.</span> It supports weight loss</h1>
+        <p>A study published in the Journal of Clinical Biochemistry and Nutrition showed that polyphenol antioxidants
+          found in lemons significantly reduced weight gain caused by a high-fat diet in mice. In addition, insulin
+          resistance was improved.</p>
+
+        <p>While the same results need to be proven in humans, anecdotal evidence is strong that lemon water supports
+          weight loss. Whether this is due to an increase in water intake and fullness or the lemons remains to be seen.
+        </p>
+    </div>
+
+    <div id="digestion">
+      <h2><span>5.</span> It aids digestion</h1>
+        <p>Some people drink lemon water as a daily morning laxative to help prevent constipation. Drinking warm or hot
+          lemon water when you wake up may help get your digestive system moving.</p>
+
+        <p>Ayurvedic medicine believes the sour lemon taste helps stimulate your “agni.” In Ayurveda, a strong agni
+          jump-starts the digestive system, allowing you to digest food easily and helping prevent the buildup of
+          toxins.</p>
+    </div>
+
+    <div id="breath">
+      <h2><span>6.</span>It freshens breath</h1>
+        <p>Have you ever rubbed a lemon on your hands to remove a powerful stench? It’s thought to neutralize odors. The
+          same folk remedy may apply to bad breath caused by eating foods with strong smells</p>
+
+        <p>Keep your breath sweeter by drinking a glass of lemon water after meals and first thing in the morning. Lemon
+          is thought to stimulate saliva, and water helps prevent a dry mouth, which leads to bad breath caused by
+          excess bacteria growth.</p>
+    </div>
+
+    <div id="kidney">
+      <h2><span>7.</span> It helps prevent kidney stones</h1>
+        <p>The citric acid in lemons may help prevent calcium kidney stones. UW Health recommends increasing citric acid
+          intake to decrease your risk of getting new calcium stones. Drinking lemon water not only helps you get more
+          citric acid, but also the water you need to prevent stones.</p>
+
+        <p>Having 1/2 cup of lemon juice provides the same amount of citric acid you’d find in prescription varieties.
+        </p>
+    </div>
+
+    <br>
+
+  </div>
+
+
+</body>
+<footer>
+  <h1>Hola</h1>
+</footer>
+
 </html>
