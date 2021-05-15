@@ -75,7 +75,7 @@ function fontRem(){
 }
 
 var contrastBg = [155, 195, 253];
-var contrastText = [155, 195, 253];
+var contrastText = [0, 0, 0];
 
 function clamp(val, min, max) {
   return Math.min(Math.max(val, min), max);
@@ -217,16 +217,16 @@ document.addEventListener("keydown", function(event){
       fontReplace();
     }
   
-    if(key == "68" || key == "83"){
+    if(key == "68" || key == "70"){
      fontRem();
     }
   
-    if(key == "83"){
+    if(key == "68"){
       fontSize = fontDec(fontSize);
        document.body.classList.add("fontsize-" + fontSize);
     }
 
-    if(key == "68"){
+    if(key == "70"){
       fontSize = fontInc(fontSize);
       document.body.classList.add("fontsize-" + fontSize);
     }
@@ -250,8 +250,14 @@ document.addEventListener("keydown", function(event){
       contrastChange(-1, contrastBg);
       document.body.style["background-color"] = 'rgb(' + contrastBg + ')';
     }
+    if(key == "66"){
+      lightenArticle();
+    }
+    if(key == "78"){
+      darkenArticle();
+    }
   
-    if(key == "70"){
+    if(key == "82"){
      document.styleSheets[0].disabled = false; document.body.removeAttribute("style");
       document.body.removeAttribute("class");
       contrastBg = [255,255,255];
@@ -262,11 +268,11 @@ document.addEventListener("keydown", function(event){
         textColorSliders[i].value = 0;
       }
     }
-  if(key == '71'){
+  if(key == '69'){
     document.styleSheets[0].disabled = true;
   }
   
-  if(key == '72'){
+  if(key == '83'){
     var links = document.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) { 
         links[i].classList.toggle("highlight");
@@ -317,7 +323,7 @@ function lightenArticle(){
   let r=parseInt($('#rangeArticle1').val());
   let g=parseInt($('#rangeArticle2').val());
   let b=parseInt($('#rangeArticle3').val());
-  
+
   r = (r+50);
   g = g+50;
   b = b+50;
