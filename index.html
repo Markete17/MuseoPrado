@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <title>Museo del Prado</title>
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,9 +82,10 @@
 </div>
 <!-- Accessibility Helper Panel - End -->
 
-<body>
+<body id="inicio">
   <script src="js/index.js"></script>
   <div id="content-wrapper">
+    <p><b>Navegación:</b> <a title="Ir a inicio" href="#inicio" class="navtext">Inicio</a></p>
     <h1 class="title">Museo del prado</h1>
     <blockquote cite="https://akifrases.com/frase/195934#:~:text=Frase%20de%20Orhan%20Pamuk,tiempo%20se%20transforma%20en%20espacio.%E2%80%9D&text=%E2%80%9CEl%20amor%20es%20el%20anhelo,el%20mismo%20lugar%20que%20ella.&text=Biografia%3A%20Ferit%20Orhan%20Pamuk%20es,Premio%20Nobel%20de%20Literatura%202006.">
       <div id="cita">
@@ -105,13 +106,10 @@
     <h1 id="menu" class="center">Menu</h1>
     <nav>
       <ul class="menu">
-        <li><a title="Título de la sección 1" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
-        <li><a title="Título de la sección 2" href="#horario"><b>2.Ir a Horario</b></a></li>
-        <li><a title="Título de la sección 3" href="#skin"><b>3.Ir a Precios</b></a></li>
-        <li><a title="Título de la sección 4" href="#weightLoss">4.Weight Loss</a></li>
-        <li><a title="Título de la sección 5" href="#digestion">5.Digestion</a></li>
-        <li><a title="Título de la sección 6" href="#breath">6.Clean Breath</a></li>
-        <li><a title="Título de la sección 7" href="#kidney">7.Prevents Kidney Stones</a></li>
+        <li><a title="Accede a la presentación" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
+        <li><a title="Accede al horario" href="#horario"><b>2.Ir a Horario</b></a></li>
+        <li><a title="Accede a la lista de precios" href="#precios"><b>3.Ir a Precios</b></a></li>
+        <li><a title="Accede a la reserva de tu exposición guiada" href="#reserva"><b>4.Reserva tu exposición</b></a></li>
       </ul>
     </nav>
 
@@ -194,55 +192,86 @@
         <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
     </div>
 
-    <div id="weightLoss">
-      <h2><span>4.</span> It supports weight loss</h1>
-        <p>A study published in the Journal of Clinical Biochemistry and Nutrition showed that polyphenol antioxidants
-          found in lemons significantly reduced weight gain caused by a high-fat diet in mice. In addition, insulin
-          resistance was improved.</p>
-
-        <p>While the same results need to be proven in humans, anecdotal evidence is strong that lemon water supports
-          weight loss. Whether this is due to an increase in water intake and fullness or the lemons remains to be seen.
+    <div id="reserva">
+      <h2 class="center"><span>4. </span>Reserva tu exposición guiada</h1>
+        <div id="content-form">
+     
+          <h2>Rellena el formulario</h2>
+          <form action="#" name="myForm" id="form" onsubmit="return validateForm()" method="get">
+            <p>Los campos obligatorios se indican con un <span class="reqField">*</span>.</p>
+             <p>
+               <label for="nombre"><b>Nombre:</b><span class="reqField">*</span><span class="element-invisible" id="nombreErrorHidden"></span></label><br/>
+                <input title="Escriba su nombre" id="nombre" type="text" name="textfield" aria-required="true"/>
+               <span class="errorMsg" id="nombreError"></span>
+              </p>
+               <p><label for="apellidos"><b>Apellidos:</b><span class="reqField">*</span><span class="element-invisible" id="apellidosErrorHidden"></span></label><br />
+                <input title="Escriba sus apellidos" id="apellidos" type="text" name="textfield" aria-required="true"/>
+                
+                <span class="errorMsg" id="apellidosError"></span>
+                
+             </p>
+             <p><label for="email"><b>Email:</b><span class="reqField">*</span><span class="element-invisible" id="emailErrorHidden"></span></label><br />
+              <input id="email" title="Escriba su email" type="email" name="textfield" aria-required="true"/>
+              
+              <span class="errorMsg" id="emailError"></span>
+              
+           </p>
+             <div><label for="sample"><b>Observación:</b><span class="reqField">*</span><span class="errorMsg" id="sampleError"></span></label><br/>
+                <input id="sample" type="text" name="textfield2" aria-describedby="sample-tip"/>
+             <div role="tooltip" id="sample-tip" aria-required="true">Ayuda: Pintura barroca, rococó, gótico, romántica..</div>
+             </div>
+             <p>
+              <div><label for="fecha"><b>Fecha de asistencia</b><span class="reqField">*</span><span class="errorMsg" id="fechaError"></span></label><br/>
+                <input title="Escriba la fecha de asistencia. Día(2 digitos)/Mes(2 digitos)/Año(4 digitos)" type="date" id="fecha" onchange="cambiarFecha();" class="picker" aria-describedby="sample-tip" aria-required="true">
+                <div role="tooltip" id="sample-tip">Ayuda: por ejemplo, 04/06/2021</div>
+                <span class="fechaMsg" id="fechaError"></span>
+              <div class="result"></div>
+             </div>
+            </p>
+            </p>
+             <p>
+                <fieldset>
+                   <legend  id="toppingsLegend"><b>Elige las exposiciones a las que asistirá</b><span class="reqField">*</span><span class="errorMsg" id="toppingsLegendError"></span></legend>
+                   <input onclick="mitologia()" id="mitologia" type="checkbox" name="toppings" value="Pasiones mitológicas">
+                  <label for="mitologia"><span aria-label="La exposición 'Pasiones mitológicas, añade 3 euros a tu pedido."><b>Pasiones mitológicas:</b></span> <span aria-hidden="true">3 euros.</span></label><br>
+                   <input onclick="greco()" id="greco" type="checkbox" name="toppings" value="El Greco en Illescas">
+                  <label for="greco"><span aria-label="La exposición 'El Greco en Illescas', añade 5 euros a tu pedido."><b>El Greco en Illescas:</b></span> <span aria-hidden="true">5 euros.</span></label><br>
+                  <input onclick="dioses()" id="dioses" type="checkbox" name="toppings" value="Los Dioses del Prado">
+                  <label for="dioses"><span aria-label="La exposición 'Los Dioses del Prado, añade 7 euros a tu pedido."><b>Los Dioses del Prado:</b></span> <span aria-hidden="true">8 euros.</span></label><br>
+                  <input onclick="reencuentro()" id="reencuentro" type="checkbox" name="toppings" value="El Reencuentro">
+                  <label for="reencuentro"><span aria-label="La exposición 'El Reencuentro, añade 2 euros a tu pedido."><b>El Reencuentro:</b></span> <span aria-hidden="true">2 euros.</span></label><br>
+                </fieldset>
+             </p>
+             <fieldset>
+                <legend  id="turnoLegend"><b>Elige tu turno:</b><span class="reqField">*</span><span class="errorMsg" id="turnoLegendError"></span></legend>
+                <input id="overnight" type="radio" name="turno" value="overnight" checked/>
+                <label for="overnight">Mañana</label><br>
+                <input id="twoday" type="radio" name="turno" value="twoday">
+                <label for="twoday">Tarde</label><br>
+             </fieldset>
+             <label id="favcityLabel" for="favcity" >Choose your favorite city?<span class="reqField">*</span><span class="errorMsg" id="favcityError"></span></label><br />
+             <select id="favcity" name="select" aria-labelledby="favcityLabel">
+                <option value="0">Select</option>
+                <option value="1">Amsterdam</option>
+                <option value="2">Buenos Aires</option>
+                <option value="3">Delhi</option>
+                <option value="4">Hong Kong</option>
+                <option value="5">London</option>
+                <option value="6">Los Angeles</option>
+                <option value="7">Moscow</option>
+                <option value="8">Mumbai</option>
+                <option value="9">New York</option>
+                <option value="10">Sao Paulo</option>
+                <option value="11">Tokyo</option>
+             </select>
+             <div><input type="submit" name="submit" class="submit" value="Enviar formulario"/>
+                <input type="reset" name="reset" class="submit" value="Reiniciar formulario"/>
+             </div>
+         </form>
+         </div>
         </p>
+        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
     </div>
-
-    <div id="digestion">
-      <h2><span>5.</span> It aids digestion</h1>
-        <p>Some people drink lemon water as a daily morning laxative to help prevent constipation. Drinking warm or hot
-          lemon water when you wake up may help get your digestive system moving.</p>
-
-        <p>Ayurvedic medicine believes the sour lemon taste helps stimulate your “agni.” In Ayurveda, a strong agni
-          jump-starts the digestive system, allowing you to digest food easily and helping prevent the buildup of
-          toxins.</p>
-    </div>
-
-    <div id="breath">
-      <h2><span>6.</span>It freshens breath</h1>
-        <p>Have you ever rubbed a lemon on your hands to remove a powerful stench? It’s thought to neutralize odors. The
-          same folk remedy may apply to bad breath caused by eating foods with strong smells</p>
-
-        <p>Keep your breath sweeter by drinking a glass of lemon water after meals and first thing in the morning. Lemon
-          is thought to stimulate saliva, and water helps prevent a dry mouth, which leads to bad breath caused by
-          excess bacteria growth.</p>
-    </div>
-
-    <div id="kidney">
-      <h2><span>7.</span> It helps prevent kidney stones</h1>
-        <p>The citric acid in lemons may help prevent calcium kidney stones. UW Health recommends increasing citric acid
-          intake to decrease your risk of getting new calcium stones. Drinking lemon water not only helps you get more
-          citric acid, but also the water you need to prevent stones.</p>
-
-        <p>Having 1/2 cup of lemon juice provides the same amount of citric acid you’d find in prescription varieties.
-        </p>
-    </div>
-
-    <br>
-
-  </div>
-
-
 </body>
-<footer>
-  <h1>Footer de Xexu. Un footer con algunos links accesibles a la web del museo </h1>
-</footer>
 
 </html>

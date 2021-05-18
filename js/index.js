@@ -31,6 +31,7 @@ var bgColorSliders = document.getElementsByClassName("rangeBg");
 var textColorSliders = document.getElementsByClassName("rangeText");
 
 var toggleBlur = document.getElementById("toggleBlur");
+var checkBox = document.getElementsByName("toppings");
 
 var fonts = {
   list: [
@@ -42,11 +43,45 @@ var fonts = {
   ],
   index: 0
 }
+var exposiciones = {
+  exp1: {
+    nombre: "Pasiones Mitológicas",
+    precio: 3
+  },
+  exp2: {
+    nombre: "El Greco en Illescas",
+    precio: 5
+  },
+  exp3: {
+    nombre: "Los Dioses del Prado",
+    precio: 8
+  },
+  exp4: {
+    nombre: "El Reencuentro",
+    precio: 2
+  },
+  list:new Array()
+}
 function fontReplace() {
   fonts.index++;
   let i = (fonts.index) % fonts.list.length;
   var body = $('body');
   body.css('font-family',fonts.list[i]+',sans-serif');
+}
+
+function mitologia(){
+  if(!exposiciones.list.includes(exposiciones.exp1)){
+    exposiciones.list.push(exposiciones.exp1);
+  }
+  else{
+    for(let i=0;i<exposiciones.list.length;i++){
+      let exp = exposiciones.list[i];
+      if(exp == exposiciones.exp1){
+        exposiciones.list.slice(i,i);
+      }
+    }
+  }
+  console.log(exposiciones.list);
 }
 
 var fontSize = 0;
@@ -144,7 +179,6 @@ document.addEventListener("click", function(event){
   }
   
   if(el == closeAccessPanel){
-    console.log("hoa");
       if(!accessPanel.classList.contains("visible") == true){
         accessPanel.classList.add("visible").focus();
       } else{
@@ -199,9 +233,11 @@ document.addEventListener("click", function(event){
         document.body.classList.remove("blur");
       }
     }
+
 });
 
 document.addEventListener("keydown", function(event){
+  
     var key = event.keyCode;
   
   	if(key == "81" || key == "27"){
@@ -211,7 +247,7 @@ document.addEventListener("keydown", function(event){
         accessPanel.classList.remove("visible");
       }
     }
-
+    if(accessPanel.classList.contains("visible") == true){
     // redo as switch cases
     if(key == "65"){
       fontReplace();
@@ -282,6 +318,7 @@ document.addEventListener("keydown", function(event){
         buttons[i].classList.toggle("highlight");
     }
   }
+}
 });
 
 
@@ -363,4 +400,106 @@ function darkenArticle(){
   $('#rangeArticle2').val(g);
   $('#rangeArticle3').val(b);
   changeArticleBg();
+}
+
+//Form validation
+var formValid;
+
+function validateForm() {
+	//set initial value of formValid to true
+	formValid = 1;
+	resetErrors();
+
+
+	//validate select menu
+	var z = document.forms["myForm"]["favcity"].value;
+	if (z == 0) {
+		applyError("favcity","&nbsp;You must choose a favorite city."); 
+	}
+	//validate radio buttons
+	if(validateGroup("turno")==false) {
+		document.getElementById("turnoLegendError").style.padding = "0 5px";
+		applyError("turno","Por favor, seleccione el turno.");
+	}
+	//validate checkboxes
+	if(validateGroup('toppings')==false) {
+		document.getElementById("toppingsLegendError").style.padding = "0 5px";
+		applyError("toppingsLegend","Debes elegir al menos, una exposición en tu reserva.");
+	}
+	//validate input fields
+	var x = document.forms["myForm"]["sample"].value;
+	if (x == "") {
+		applyError("sample","&nbsp;You must enter some text here.");
+	}
+	var y = document.forms["myForm"]["nombre"].value;
+	if (y == "") {
+		applyError("nombre","&nbsp;Debes ingresar tu nombre.");
+	}
+	var z = document.forms["myForm"]["apellidos"].value;
+	if (z == "") {
+		applyError("apellidos","&nbsp;Debes ingresar tus apellidos.");
+	}
+  var date = document.forms["myForm"]["fecha"].value;
+  if (date == "") {
+    applyError("fecha","&nbsp;Tienes que seleccionar una fecha.");
+	}
+  var email = document.forms["myForm"]["email"].value;
+  if (email=="") {
+    applyError("email","&nbsp;El correo que has introducido no es correcto. Ej: museo@gmail.com");
+	}
+	//if a form field is not valid, do not submit form
+	if (formValid == 0){
+		console.log("hola");
+    return false;
+	} else{
+    console.log("adios");
+  }
+}
+
+//Validates Instruments custom select menu
+
+
+//Appends error message to label, puts focus on field with error message
+function applyError(errorFieldId,errorMessage){
+	var errorMessageId = errorFieldId + "Error";
+	document.getElementById(errorMessageId).innerHTML = errorMessage; //puts error in span tag
+	document.getElementById(errorFieldId).focus(); //puts focus on field with error
+	formValid = 0; //sets global formValid variable to false
+  
+}
+
+//validates grouped form fields like checkboxes or radio buttons. Accepts the name of the group to be validated.
+function validateGroup(groupName){
+	var group = document.getElementsByName(groupName);
+	var groupCount = 0;
+	for (var i = 0; i < group.length; i++) {
+		if (group[i].checked) {
+			groupCount++;
+		}
+	}
+	if (groupCount < 1) {
+		return false;
+	}
+	return true;
+}
+
+//resets error messages so they are turned off
+function resetErrors(){
+	document.getElementById("nombreError").innerHTML = "";
+	document.getElementById("nombreErrorHidden").innerHTML = "";
+	document.getElementById("sampleError").innerHTML = "";
+	document.getElementById("toppingsLegendError").innerHTML = "";
+	document.getElementById("turnoLegendError").innerHTML = "";
+	document.getElementById("favcityError").innerHTML = "";
+}
+
+function cambiarFecha(){
+  let fecha=$('#fecha').val();
+  let array = fecha.split("-");
+  $('.result').html("<p><b>Asistiré el día:</b> "+array[2]+'-'+array[1]+'-'+array[0]+'</p>')
+}
+
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
 }
