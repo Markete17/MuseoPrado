@@ -28,31 +28,31 @@
   <h4>Opciones de Accesibilidad Visual</h4>
   <div class="button-group">
     <p><b>Pulsa para cerrar el menu.</b></p>
-    <button id="closeAccessPanel">Cerrar Opciones (ESC)</button>
+    <button title="Cerrar el menú de opciones" id="closeAccessPanel" accesskey="esc">Cerrar Opciones (ESC)</button>
   </div>
   <div class="button-group">
     <p><b>Pulsa para cambiar la letra.</b></p>
-    <button id="fontSwap" accesskey="a">Cambiar letra (A)</button>
+    <button title="Cambiar el estilo de la letra" id="fontSwap" accesskey="a">Cambiar letra (A)</button>
   </div>
   <div class="button-group">
     <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
-    <button id="fontDecrease" accesskey="s">Disminuir (D)</button>
-    <button id="fontIncrease" accesskey="d">Aumentar (F)</button>
+    <button title="Disminuir el tamaño de la letra" id="fontDecrease" accesskey="d">Disminuir (D)</button>
+    <button title="Aumentar el tamaño de la letra" id="fontIncrease" accesskey="f">Aumentar (F)</button>
   </div>
   <div class="button-group">
     <p><b>Pulsa para subrayar los enlaces.</b></p>
-    <button id="highlightLinks" accesskey="h">Subrayar enlaces (S)</button>
+    <button title="Resaltar con color amarillo los enlaces" id="highlightLinks" accesskey="s">Subrayar enlaces (S)</button>
   </div>
 
   <div class="button-group">
     <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
-    <button id="reset" accesskey="f">Reiniciar (R)</button>
-    <button id="remove" accesskey="g">Eliminar (E)</button>
+    <button title="Reiniciar el estilo de la página" id="reset" accesskey="r">Reiniciar (R)</button>
+    <button title="Eliminar el estilo de la página" id="remove" accesskey="e">Eliminar (E)</button>
   </div>
   <div class="contrastTextChange button-group">
     <p><b>Cambia el contraste del texto.</b></p>
-    <button id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
-    <button id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
+    <button title="Iluminar el color del texto" id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
+    <button title="Oscurecer el color del texto" id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
   </div>
   <div class="rangeSliders">
     <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
@@ -61,8 +61,8 @@
   </div>
   <div class="contrastBgChange button-group">
     <p><b>Cambia el contraste del fondo.</b></p>
-    <button id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
-    <button id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
+    <button title="Iluminar el fondo" id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
+    <button title="Oscurecer el fondo" id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
   </div>
   <div class="rangeSliders">
     <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
@@ -71,8 +71,8 @@
   </div>
   <div class="contrastBgArticleChange button-group">
     <p><b>Cambia el contraste del artículo.</b></p>
-    <button id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="k">Iluminar artículo (B)</button>
-    <button id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="l">Oscurecer artículo (N)</button>
+    <button title="Iluminar el color del fondo del artículo" id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="b">Iluminar artículo(B)</button>
+    <button title="Oscurecer el color del fondo del artículo" id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="n">Oscurecer artículo (N)</button>
   </div>
   <div class="rangeSliders">
     <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">

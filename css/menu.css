@@ -102,7 +102,7 @@ a.highlight, a:hover.highlight, a:focus.highlight, a:visited.highlight {
 }
 
 .accessibility-panel {
-  width: 320px;
+  width: 400px;
   height: 100%;
   background: #f9f9f9;
   border-color: #ddd;

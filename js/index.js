@@ -276,6 +276,8 @@ document.addEventListener("click", function(event){
     contrastBg = [255,255,255];
     contrastText = [0,0,0];
     fontSize = 0;
+      $('body').css('margin-right','15%');
+
     for (var i = 0; i < 3; i++){
       bgColorSliders[i].value = 255;
       textColorSliders[i].value = 0;
@@ -534,12 +536,6 @@ function validateForm() {
 	formValid = 1;
 	resetErrors();
 
-
-	//validate select menu
-	var z = document.forms["myForm"]["favcity"].value;
-	if (z == 0) {
-		applyError("favcity","&nbsp;You must choose a favorite city."); 
-	}
 	//validate radio buttons
 	if(validateGroup("turno")==false) {
 		document.getElementById("turnoLegendError").style.padding = "0 5px";
@@ -549,11 +545,6 @@ function validateForm() {
 	if(validateGroup('toppings')==false) {
 		document.getElementById("toppingsLegendError").style.padding = "0 5px";
 		applyError("toppingsLegend","Debes elegir al menos, una exposición en tu reserva.");
-	}
-	//validate input fields
-	var x = document.forms["myForm"]["sample"].value;
-	if (x == "") {
-		applyError("sample","&nbsp;You must enter some text here.");
 	}
 	var y = document.forms["myForm"]["nombre"].value;
 	if (y == "") {
@@ -615,10 +606,8 @@ function validateGroup(groupName){
 function resetErrors(){
 	document.getElementById("nombreError").innerHTML = "";
 	document.getElementById("nombreErrorHidden").innerHTML = "";
-	document.getElementById("sampleError").innerHTML = "";
 	document.getElementById("toppingsLegendError").innerHTML = "";
 	document.getElementById("turnoLegendError").innerHTML = "";
-	document.getElementById("favcityError").innerHTML = "";
 }
 
 function cambiarFecha(){
