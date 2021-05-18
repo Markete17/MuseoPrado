@@ -51,8 +51,8 @@
   </div>
   <div class="contrastTextChange button-group">
     <p><b>Cambia el contraste del texto.</b></p>
-    <button id="contrastTextLighten" accesskey="z">Iluminar (Z)</button>
-    <button id="contrastTextDarken" accesskey="x">Oscurecer (X)</button>
+    <button id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
+    <button id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
   </div>
   <div class="rangeSliders">
     <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
@@ -61,8 +61,8 @@
   </div>
   <div class="contrastBgChange button-group">
     <p><b>Cambia el contraste del fondo.</b></p>
-    <button id="contrastBgLighten" accesskey="c">Iluminar (C)</button>
-    <button id="contrastBgDarken" accesskey="v">Oscurecer (V)</button>
+    <button id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
+    <button id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
   </div>
   <div class="rangeSliders">
     <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
@@ -71,8 +71,8 @@
   </div>
   <div class="contrastBgArticleChange button-group">
     <p><b>Cambia el contraste del artículo.</b></p>
-    <button id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="k">Iluminar (B)</button>
-    <button id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="l">Oscurecer (N)</button>
+    <button id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="k">Iluminar artículo (B)</button>
+    <button id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="l">Oscurecer artículo (N)</button>
   </div>
   <div class="rangeSliders">
     <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
@@ -112,7 +112,6 @@
         <li><a title="Accede a la reserva de tu exposición guiada" href="#reserva"><b>4.Reserva tu exposición</b></a></li>
       </ul>
     </nav>
-
     <!--content-->
     <div id="presentacion">
       <h2 class="center"><span>1. </span>Presentación</h1>
@@ -216,9 +215,10 @@
               <span class="errorMsg" id="emailError"></span>
               
            </p>
-             <div><label for="sample"><b>Observación:</b><span class="reqField">*</span><span class="errorMsg" id="sampleError"></span></label><br/>
-                <input id="sample" type="text" name="textfield2" aria-describedby="sample-tip"/>
-             <div role="tooltip" id="sample-tip" aria-required="true">Ayuda: Pintura barroca, rococó, gótico, romántica..</div>
+             <div><label for="discapacidad"><b>Escriba su discapacidad</b></label><br/>
+                <input title="¿Tiene alguna discapacidad?" id="discapacidad" type="text" name="discapacidad" aria-describedby="sample-tip"/>
+             <div role="tooltip" id="discapacidad" aria-required="true">Ayuda: discapacidad auditiva, visual, cognitiva, motora ...</div>
+             <div>Le ayudaremos a seguir su exposición.</div>
              </div>
              <p>
               <div><label for="fecha"><b>Fecha de asistencia</b><span class="reqField">*</span><span class="errorMsg" id="fechaError"></span></label><br/>
@@ -229,41 +229,47 @@
              </div>
             </p>
             </p>
+            <fieldset>
+              <legend  id="turnoLegend"><b>Elige tu turno:</b><span class="reqField">*</span><span class="errorMsg" id="turnoLegendError"></span></legend>
+              <input id="mañana" type="radio" name="turno" value="Mañana" checked/>
+              <label for="mañana">Mañana</label><br>
+              <input id="tarde" type="radio" name="turno" value="Tarde">
+              <label for="tarde">Tarde</label><br>
+           </fieldset>
              <p>
                 <fieldset>
-                   <legend  id="toppingsLegend"><b>Elige las exposiciones a las que asistirá</b><span class="reqField">*</span><span class="errorMsg" id="toppingsLegendError"></span></legend>
-                   <input onclick="mitologia()" id="mitologia" type="checkbox" name="toppings" value="Pasiones mitológicas">
+                   <legend id="toppingsLegend"><b>Elige las exposiciones a las que asistirá</b><span class="reqField">*</span><span class="errorMsg" id="toppingsLegendError"></span></legend>
+                   <input id="mitologia" type="checkbox" name="toppings" value="Pasiones mitológicas - 3 euros">
                   <label for="mitologia"><span aria-label="La exposición 'Pasiones mitológicas, añade 3 euros a tu pedido."><b>Pasiones mitológicas:</b></span> <span aria-hidden="true">3 euros.</span></label><br>
-                   <input onclick="greco()" id="greco" type="checkbox" name="toppings" value="El Greco en Illescas">
+                   <input id="greco" type="checkbox" name="toppings" value="El Greco en Illescas - 5 euros">
                   <label for="greco"><span aria-label="La exposición 'El Greco en Illescas', añade 5 euros a tu pedido."><b>El Greco en Illescas:</b></span> <span aria-hidden="true">5 euros.</span></label><br>
-                  <input onclick="dioses()" id="dioses" type="checkbox" name="toppings" value="Los Dioses del Prado">
+                  <input id="dioses" type="checkbox" name="toppings" value="Los Dioses del Prado - 7 euros">
                   <label for="dioses"><span aria-label="La exposición 'Los Dioses del Prado, añade 7 euros a tu pedido."><b>Los Dioses del Prado:</b></span> <span aria-hidden="true">8 euros.</span></label><br>
-                  <input onclick="reencuentro()" id="reencuentro" type="checkbox" name="toppings" value="El Reencuentro">
+                  <input id="reencuentro" type="checkbox" name="toppings" value="El Reencuentro - 2 euros">
                   <label for="reencuentro"><span aria-label="La exposición 'El Reencuentro, añade 2 euros a tu pedido."><b>El Reencuentro:</b></span> <span aria-hidden="true">2 euros.</span></label><br>
                 </fieldset>
              </p>
-             <fieldset>
-                <legend  id="turnoLegend"><b>Elige tu turno:</b><span class="reqField">*</span><span class="errorMsg" id="turnoLegendError"></span></legend>
-                <input id="overnight" type="radio" name="turno" value="overnight" checked/>
-                <label for="overnight">Mañana</label><br>
-                <input id="twoday" type="radio" name="turno" value="twoday">
-                <label for="twoday">Tarde</label><br>
-             </fieldset>
-             <label id="favcityLabel" for="favcity" >Choose your favorite city?<span class="reqField">*</span><span class="errorMsg" id="favcityError"></span></label><br />
-             <select id="favcity" name="select" aria-labelledby="favcityLabel">
-                <option value="0">Select</option>
-                <option value="1">Amsterdam</option>
-                <option value="2">Buenos Aires</option>
-                <option value="3">Delhi</option>
-                <option value="4">Hong Kong</option>
-                <option value="5">London</option>
-                <option value="6">Los Angeles</option>
-                <option value="7">Moscow</option>
-                <option value="8">Mumbai</option>
-                <option value="9">New York</option>
-                <option value="10">Sao Paulo</option>
-                <option value="11">Tokyo</option>
-             </select>
+             <div>
+               <p>
+                 A continuación, se muestra el resumen de los datos de su reserva. Reviselos antes de enviar el formulario.
+               </p>
+               <ul id="resumen">
+                  <li id="nombreli"><b>Nombre completo: </b><span>Aún no ha rellenado su nombre. <b>(Obligatorio)*</b></span></li>
+                  <li id="apellidosli"><b>Apellidos: </b><span>Aún no ha rellenado sus apellidos. <b>(Obligatorio)*</b></span></li>
+                  <li id="emailli"><b>Email: </b><span>Aún no ha rellenado su email. <b>(Obligatorio)*</b></span></li>
+                  <li id="discapacidadli"><b>Discapacidad: </b><span>No tengo discapacidades.</span></li>
+                  <li id="fechali"><b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha de asistencia. <b>(Obligatorio)*</b></span></li>
+                  <li id="turnoli"><b>Escogiste turno de: </b><span>Mañana <b>(Correcto)*</b></span></li>
+                  <li><b>Exposiciones reservadas: </b></li>
+                  <ul id="listali">
+                    
+                  </ul>
+               </ul>
+               <p id="precio">
+              </p>
+             </div>
+             
+             <br>
              <div><input type="submit" name="submit" class="submit" value="Enviar formulario"/>
                 <input type="reset" name="reset" class="submit" value="Reiniciar formulario"/>
              </div>

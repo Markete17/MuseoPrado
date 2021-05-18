@@ -1,3 +1,134 @@
+var nombre;
+var apellidos;
+var email;
+var discapacidad;
+var fecha;
+var exposiciones;
+var turno;
+var precio;
+
+$(function () {
+  $('#nombre').on('input',function(e){
+    nombre = $('#nombre').val();
+    if(nombre==''){
+      $('#nombreli').html('<b>Nombre completo: </b><span>Aún no ha rellenado su nombre. <b>(Obligatorio)*</b></span>');
+    }
+    else{
+      $('#nombreli').html('<b>Nombre completo: </b><span>'+nombre+'. <b>(Correcto)</b></span>');
+    }
+  });
+  $('#apellidos').on('input',function(e){
+    apellidos = $('#apellidos').val();
+    if(apellidos==''){
+      $('#apellidosli').html('<b>Apellidos: </b><span>Aún no ha rellenado sus apellidos. <b>(Obligatorio)*</b></span>');
+    }
+    else{
+      $('#apellidosli').html('<b>Apellidos: </b><span>'+apellidos+'. <b>(Correcto)</b></span>');
+    }
+  });
+  $('#email').on('input',function(e){
+    email = $('#email').val();
+    if(!validateEmail(email)){
+      $('#emailli').html('<b>Email: </b><span>Email incorrecto. Ejemplo: museo@gmail.com <b>(Obligatorio)*</b></span>');
+    }
+    else{
+      $('#emailli').html('<b>Email: </b><span>'+email+'. <b>(Correcto)</b></span>');
+    }
+  });
+  $('#fecha').on('input',function(e){
+    fecha = $('#fecha').val();
+    if(fecha==''){
+      $('#fechali').html('<b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha. (Obligatorio)*</b></span>');
+    }
+    else{
+      $('#fechali').html('<b>Fecha de asistencia: </b><span>'+fecha+'. <b>(Correcto)</b></span>');
+    }
+  });
+  $('#discapacidad').on('input',function(e){
+    discapacidad = $('#discapacidad').val();
+    if(discapacidad==''){
+      $('#discapacidadli').html('<b>Discapacidad: </b><span>No tengo discapacidades. <b>(Correcto)</b></span>');
+    }
+    else{
+      $('#emailli').html('<b>Discapacidad: </b>'+discapacidad+'. <b>(Correcto)</b></span>');
+    }
+  });
+  $('input[name=turno]').on('input',function(e){
+    if($('#mañana').is(':checked')){
+      turno = $('#mañana').val();
+    }
+    else{
+      turno = $('#tarde').val();
+    }
+    
+      $('#turnoli').html('<b>Escogiste turno de: </b><span>'+turno+'<b>.(Correcto)</b></span>');
+    
+  });
+  $('input[type=checkbox]').on('input',function(e){
+    comprobarExposiciones();
+  });
+  comprobarExposiciones();
+  $('input[name=reset]').on('click',function(){
+    for(let i=0;i<6;i++){
+      $('#exp'+i).remove();
+    }
+    $('#precio').html('');
+    $('#errorexposiciones').remove();
+    $('#listali').append('<li id="errorexposiciones"><span>Aún no ha añadido ninguna exposición a su reserva. (Añadir al menos una es obligatorio)*</span></li>')
+  })
+
+});
+
+function comprobarExposiciones(){
+  let mitologia = '';
+  let greco = '';
+  let dioses = '';
+  let reencuentro ='';
+  let precio = 0;
+  let exposiciones = new Array();
+
+  if($('#mitologia').is(":checked")){
+    mitologia = $('#mitologia').val();
+    precio +=3;
+    exposiciones.push(mitologia);
+  }
+
+  if($('#greco').is(":checked")){
+    greco = $('#greco').val();
+    precio +=5;
+    exposiciones.push(greco);
+  }
+
+  if($('#dioses').is(":checked")){
+    dioses = $('#dioses').val();
+    precio +=7;
+    exposiciones.push(dioses);
+  }
+  if($('#reencuentro').is(":checked")){
+    reencuentro = $('#reencuentro').val();
+    precio +=2;
+    exposiciones.push(reencuentro);
+  }
+  if(exposiciones.length===0){
+    for(let i=0;i<6;i++){
+      $('#exp'+i).remove();
+    }
+    $('#precio').html('');
+    $('#errorexposiciones').remove();
+    $('#listali').append('<li id="errorexposiciones"><span>Aún no ha añadido ninguna exposición a su reserva. (Añadir al menos una es obligatorio)*</span></li>')
+  }
+  else{
+    $('#errorexposiciones').remove();
+    for(let i=0;i<6;i++){
+      $('#exp'+i).remove();
+    }
+    for(let i=0;i<exposiciones.length;i++){
+      let exp=exposiciones[i];
+      $('#listali').append('<li id="exp'+i+'"><span>'+exp+'</span></li>');
+    }
+    $('#precio').html('<b>Su reserva tendrá un precio total de: </b>'+precio+'euros.');
+  }
+}
 // Define Accessibility Panel
 
 var accessPanel = document.getElementById("accessPanel");
@@ -69,21 +200,6 @@ function fontReplace() {
   body.css('font-family',fonts.list[i]+',sans-serif');
 }
 
-function mitologia(){
-  if(!exposiciones.list.includes(exposiciones.exp1)){
-    exposiciones.list.push(exposiciones.exp1);
-  }
-  else{
-    for(let i=0;i<exposiciones.list.length;i++){
-      let exp = exposiciones.list[i];
-      if(exp == exposiciones.exp1){
-        exposiciones.list.slice(i,i);
-      }
-    }
-  }
-  console.log(exposiciones.list);
-}
-
 var fontSize = 0;
 
 function fontDec(inc) {
@@ -135,6 +251,7 @@ document.addEventListener("click", function(event){
   
   if(el == toggleAccessPanel){
       if(!accessPanel.classList.contains("visible") == true){
+        $('body').css('margin-right','15%');
         accessPanel.classList.toggle("visible");
       } else{
         accessPanel.classList.toggle("visible");
@@ -182,6 +299,7 @@ document.addEventListener("click", function(event){
       if(!accessPanel.classList.contains("visible") == true){
         accessPanel.classList.add("visible").focus();
       } else{
+        $('body').css('margin-right','0%');
         accessPanel.classList.remove("visible");
       }
     }
@@ -242,8 +360,10 @@ document.addEventListener("keydown", function(event){
   
   	if(key == "81" || key == "27"){
       if(!accessPanel.classList.contains("visible") == true){
+        $('body').css('margin-right','15%');
         accessPanel.classList.add("visible").focus();
       } else{
+        $('body').css('margin-right','');
         accessPanel.classList.remove("visible");
       }
     }
@@ -349,7 +469,11 @@ function changeArticleBg(){
     colors.push(sliders[i].value);
   }
     $('#content-wrapper').css('background-color','rgb('+colors[0]+','+colors[1]+','+colors[2]+')');
+    $('.menu li').css('background','rgb('+colors[0]+','+colors[1]+','+colors[2]+')');
+    $('.volver').css('background','rgb('+colors[0]+','+colors[1]+','+colors[2]+')');
+    $('.center').css('background','rgb('+colors[0]+','+colors[1]+','+colors[2]+')');
 }
+
 $('input').on('change',textInputChange);
 
 $('#rangeArticle1').on('change',changeArticleBg);
@@ -452,7 +576,11 @@ function validateForm() {
 		console.log("hola");
     return false;
 	} else{
-    console.log("adios");
+    for(let i=0;i<6;i++){
+      $('#exp'+i).remove();
+    }
+    $('#precio').html('');
+    $('#errorexposiciones').remove();
   }
 }
 
@@ -500,6 +628,8 @@ function cambiarFecha(){
 }
 
 function validateEmail(email) {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  if(email!=null){
+    return email.includes('@') && email.includes('.');
+  }
+  
 }

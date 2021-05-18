@@ -34,7 +34,6 @@ border-bottom:1px solid black;
 display:flex;
 flex-direction:row;
 justify-content:center;
-margin-bottom:60px;
 text-align: center;
 list-style: none;
 }
@@ -56,7 +55,7 @@ color:rgb(0, 0, 0);
 /*media queries*/
 
 @media screen and (max-width:1481px){
-ul li{
+#menu ul li{
 font-size:13px;}
 }
 @media screen and (max-width:1311px){
@@ -65,7 +64,7 @@ ul{
   flex-direction:column;
   margin-top: 80px;
 }
-ul li{
+#menu ul li{
   font-size:16px;
 }
 }
@@ -80,10 +79,6 @@ table {
 th, td {
   text-align: left;
   padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
 }
 .volver{
   border: 1px solid rgb(0, 0, 0);
@@ -126,13 +121,11 @@ margin-right: 10%;
 }
 #form select {
 	margin-bottom: 30px;
-  font-size:14px;
 }
 #form .errorMsg, .reqField {
 	color:#bb4e00;
 }
 #form input {
-  font-size:16px;
   padding: 4px;
   color:#333;
 }
@@ -194,4 +187,13 @@ margin-right: 10%;
 }
 .submit{
   cursor: pointer;
+}
+
+#resumen li {
+  padding-bottom: 30px;
+}
+
+#listali li{
+  padding-bottom: 15px;
+  margin-left: 5%;
 }
