@@ -4,15 +4,15 @@
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
-<!--https://codepen.io/DougCrossDesign/pen/RjyaYZ-->
+
 <head>
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <div id="accessPanel" class="accessibility-panel" accesskey="q">
-  <button id="toggleAccessPanel">
+    <button id="toggleAccessPanel">
     <span class="ada-icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path
@@ -20,294 +20,316 @@
       </svg>
     </span>
     <span class="toggleAccessPanelLabelInstruct">
-      <span class="toggleAccessPanelLabel" aria-label="Opciones de Accesibilidad Visual">Opciones de Accesibilidad Visual</span>
+      <span class="toggleAccessPanelLabel" aria-label="Opciones de Accesibilidad Visual">Opciones de Accesibilidad
+        Visual</span>
       <span class="toggleAccessPanelInstructions">(Pulsa la tecla Q)</span>
     </span>
   </button>
-  <h4>Opciones de Accesibilidad Visual</h4>
-  <div class="button-group">
-    <p><b>Pulsa para cerrar el menu.</b></p>
-    <button title="Cerrar el menú de opciones" id="closeAccessPanel" accesskey="esc">Cerrar Opciones (ESC)</button>
-  </div>
-  <div class="button-group">
-    <p><b>Pulsa para cambiar la letra.</b></p>
-    <button title="Cambiar el estilo de la letra" id="fontSwap" accesskey="a">Cambiar letra (A)</button>
-  </div>
-  <div class="button-group">
-    <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
-    <button title="Disminuir el tamaño de la letra" id="fontDecrease" accesskey="d">Disminuir (D)</button>
-    <button title="Aumentar el tamaño de la letra" id="fontIncrease" accesskey="f">Aumentar (F)</button>
-  </div>
-  <div class="button-group">
-    <p><b>Pulsa para subrayar los enlaces.</b></p>
-    <button title="Resaltar con color amarillo los enlaces" id="highlightLinks" accesskey="s">Subrayar enlaces (S)</button>
-  </div>
+    <h4>Opciones de Accesibilidad Visual</h4>
+    <div class="button-group">
+        <p><b>Pulsa para cerrar el menu.</b></p>
+        <button title="Cerrar el menú de opciones" id="closeAccessPanel" accesskey="esc">Cerrar Opciones (ESC)</button>
+    </div>
+    <div class="button-group">
+        <p><b>Pulsa para cambiar la letra.</b></p>
+        <button title="Cambiar el estilo de la letra" id="fontSwap" accesskey="a">Cambiar letra (A)</button>
+    </div>
+    <div class="button-group">
+        <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
+        <button title="Disminuir el tamaño de la letra" id="fontDecrease" accesskey="d">Disminuir (D)</button>
+        <button title="Aumentar el tamaño de la letra" id="fontIncrease" accesskey="f">Aumentar (F)</button>
+    </div>
+    <div class="button-group">
+        <p><b>Pulsa para subrayar los enlaces.</b></p>
+        <button title="Resaltar con color amarillo los enlaces" id="highlightLinks" accesskey="s">Subrayar enlaces
+      (S)</button>
+    </div>
 
-  <div class="button-group">
-    <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
-    <button title="Reiniciar el estilo de la página" id="reset" accesskey="r">Reiniciar (R)</button>
-    <button title="Eliminar el estilo de la página" id="remove" accesskey="e">Eliminar (E)</button>
-  </div>
-  <div class="contrastTextChange button-group">
-    <p><b>Cambia el contraste del texto.</b></p>
-    <button title="Iluminar el color del texto" id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
-    <button title="Oscurecer el color del texto" id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
-  </div>
-  <div class="rangeSliders">
-    <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
-    <p>Verde:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
-    <p>Azul:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
-  </div>
-  <div class="contrastBgChange button-group">
-    <p><b>Cambia el contraste del fondo.</b></p>
-    <button title="Iluminar el fondo" id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
-    <button title="Oscurecer el fondo" id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
-  </div>
-  <div class="rangeSliders">
-    <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
-    <p>Verde:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="195">
-    <p>Azul:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="253">
-  </div>
-  <div class="contrastBgArticleChange button-group">
-    <p><b>Cambia el contraste del artículo.</b></p>
-    <button title="Iluminar el color del fondo del artículo" id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="b">Iluminar artículo(B)</button>
-    <button title="Oscurecer el color del fondo del artículo" id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="n">Oscurecer artículo (N)</button>
-  </div>
-  <div class="rangeSliders">
-    <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
-    <p>Verde:</p> <input id="rangeArticle2" class="rangeArticleBg" type="range" min="0" max="255" value="255">
-    <p>Azul:</p> <input id="rangeArticle3" class="rangeArticleBg" type="range" min="0" max="255" value="255">
-  </div>
+    <div class="button-group">
+        <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
+        <button title="Reiniciar el estilo de la página" id="reset" accesskey="r">Reiniciar (R)</button>
+        <button title="Eliminar el estilo de la página" id="remove" accesskey="e">Eliminar (E)</button>
+    </div>
+    <div class="contrastTextChange button-group">
+        <p><b>Cambia el contraste del texto.</b></p>
+        <button title="Iluminar el color del texto" id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
+        <button title="Oscurecer el color del texto" id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
+    </div>
+    <div class="rangeSliders">
+        <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+        <p>Verde:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+        <p>Azul:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+    </div>
+    <div class="contrastBgChange button-group">
+        <p><b>Cambia el contraste del fondo.</b></p>
+        <button title="Iluminar el fondo" id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
+        <button title="Oscurecer el fondo" id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
+    </div>
+    <div class="rangeSliders">
+        <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
+        <p>Verde:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="195">
+        <p>Azul:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="253">
+    </div>
+    <div class="contrastBgArticleChange button-group">
+        <p><b>Cambia el contraste del artículo.</b></p>
+        <button title="Iluminar el color del fondo del artículo" id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="b">Iluminar artículo(B)</button>
+        <button title="Oscurecer el color del fondo del artículo" id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="n">Oscurecer artículo (N)</button>
+    </div>
+    <div class="rangeSliders">
+        <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+        <p>Verde:</p> <input id="rangeArticle2" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+        <p>Azul:</p> <input id="rangeArticle3" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+    </div>
 </div>
 <!-- Accessibility Helper Panel - End -->
 
 <body id="inicio">
-  <script src="js/index.js"></script>
-  <div id="content-wrapper">
-    <p><b>Navegación:</b> <a title="Ir a inicio" href="#inicio" class="navtext">Inicio</a></p>
-    <h1 class="title">Museo del prado</h1>
-    <blockquote cite="https://akifrases.com/frase/195934#:~:text=Frase%20de%20Orhan%20Pamuk,tiempo%20se%20transforma%20en%20espacio.%E2%80%9D&text=%E2%80%9CEl%20amor%20es%20el%20anhelo,el%20mismo%20lugar%20que%20ella.&text=Biografia%3A%20Ferit%20Orhan%20Pamuk%20es,Premio%20Nobel%20de%20Literatura%202006.">
-      <div id="cita">
-        <div id="imagecita">
-          <img src="img/pamuk.jpg" alt="pamuk">
+    <script src="js/index.js"></script>
+    <div id="content-wrapper">
+        <p><b>Navegación:</b> <a title="Ir a inicio" href="#inicio" class="navtext">Inicio</a></p>
+        <h1 class="title">Museo del prado</h1>
+        <blockquote cite="https://akifrases.com/frase/195934#:~:text=Frase%20de%20Orhan%20Pamuk,tiempo%20se%20transforma%20en%20espacio.%E2%80%9D&text=%E2%80%9CEl%20amor%20es%20el%20anhelo,el%20mismo%20lugar%20que%20ella.&text=Biografia%3A%20Ferit%20Orhan%20Pamuk%20es,Premio%20Nobel%20de%20Literatura%202006.">
+            <div id="cita">
+                <div id="imagecita">
+                    <img src="img/pamuk.jpg" alt="pamuk">
+                </div>
+                <div id="textcita">
+                    <p>“Los museos de verdad son los sitios en los que el tiempo se transforma en espacio.”</p>
+                    <p><b>― Orhan Pamuk</b></p>
+                </div>
+
+            </div>
+        </blockquote>
+        <img src="img/home.jpg" alt="Museo del Prado">
+
+
+        <!--navigation-->
+        <h1 id="menu" class="center">Menu</h1>
+        <nav>
+            <ul class="menu">
+                <li><a title="Accede a la presentación" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
+                <li><a title="Accede al horario" href="#horario"><b>2.Ir a Horario</b></a></li>
+                <li><a title="Accede a la lista de precios" href="#precios"><b>3.Ir a Precios</b></a></li>
+                <li><a title="Accede a la reserva de tu exposición guiada" href="#reserva"><b>4.Reservar exposición</b></a></li>
+                <li><a title="Accede a las exposiciones del museo" href="#cuadros"><b>5.Nuestros cuadros</b></a></li>
+                <li><a title="Accede a la pagina de contacto con la empresa" href="#contacto"><b>6.Contácte con nosotros</b></a>
+                </li>
+            </ul>
+        </nav>
+        <!--content-->
+        <div id="presentacion">
+            <h2 class="center"><span>1. </span>Presentación</h1>
+                <p>A continuación, tiene un video que describirá cómo es el museo del prado y qué te puedes encontrar.</p>
+                <div class="frame-contenedor">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6-d2uEjlU-c" title="Video presentación del Museo del Prado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Video del prado</iframe>
+                </div>
+                <div class="transcripcion-container">
+                    <p id="transcripcion"></p>
+                    <p>
+                        <a title="Mostrar la transcripción del video" onclick="transcribir()"><b><span
+                  id="transcripcionboton">Mostrar Transcripción</span></b></a>
+                    </p>
+                </div>
+                <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
         </div>
-        <div id="textcita">
-          <p>“Los museos de verdad son los sitios en los que el tiempo se transforma en espacio.”</p>
-          <p><b>― Orhan Pamuk</b></p>
+
+        <div id="horario">
+            <h2 class="center"><span>2. </span>Horario</h1>
+                <table summary="En la tabla se muestra el periodo de apertura de todos los días de la semana. Para los días que no son festivos, se puede apreciar que el horario es de 10:00 de la mañana a 20:00 de la noche excepto el domingo que el horario es de 10:00 de la mañana hasta las 17:00 de la tarde.
+        Por otra parte, para los días festivos, el horario es para todos los días de 10:00 de la mañana a 17:00 de la tarde. " style="overflow-x:auto;">
+                    <caption>Horario de apertura del Museo del Prado</caption>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th scope="col">Lunes</th>
+                            <th scope="col">Martes</th>
+                            <th scope="col">Miércoles</th>
+                            <th scope="col">Jueves</th>
+                            <th scope="col">Viernes</th>
+                            <th scope="col">Sábado</th>
+                            <th scope="col">Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">No Festivos</th>
+                            <td>10-20 h</td>
+                            <td>10-20 h</td>
+                            <td>10-20 h</td>
+                            <td>10-20 h</td>
+                            <td>10-20 h</td>
+                            <td>10-20 h</td>
+                            <td>10-17 h</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Festivos</th>
+                            <td>10-17 h</td>
+                            <td>10-17 h</td>
+                            <td>10-17 h</td>
+                            <td>10-17 h</td>
+                            <td>10-17 h</td>
+                            <td>10-17 h</td>
+                            <td>10-17 h</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
         </div>
-        
-    </div>
-    </blockquote>
-    <img src="img/home.jpg" alt="Museo del Prado">
 
+        <div id="precios">
+            <h2 class="center"><span>3. </span>Precios</h1>
+                <ul>
+                    <li>
+                        <p><b>Entrada general:</b> 15 euros.</p>
+                    </li>
+                    <li>
+                        <p><b>Entrada reducida:</b> 7,50 euros.</p>
+                    </li>
+                    <li>
+                        <p><b>Entrada general y un ejemplar <em>"La Guía del prado"</em>:</b> 24 euros.</p>
+                    </li>
+                    <li>
+                        <p><b>Entrada gratuita:</b> 0 euros.</p>
+                    </li>
+                    </li>
+                    <li>
+                        <p><b>Entrada de grupo guiada:</b> 50 euros por persona.</p>
+                    </li>
+                    <p><i>* Durante las dos últimas horas de apertura, reducción del 50% en el precio de la entrada individual que
+              corresponda. Venta exclusiva en taquilla.</i></p>
 
-    <!--navigation-->
-    <h1 id="menu" class="center">Menu</h1>
-    <nav>
-      <ul class="menu">
-        <li><a title="Accede a la presentación" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
-        <li><a title="Accede al horario" href="#horario"><b>2.Ir a Horario</b></a></li>
-        <li><a title="Accede a la lista de precios" href="#precios"><b>3.Ir a Precios</b></a></li>
-        <li><a title="Accede a la reserva de tu exposición guiada" href="#reserva"><b>4.Reservar exposición</b></a></li>
-        <li><a title="Accede a las exposiciones del museo" href="#cuadros"><b>5.Nuestros cuadros</b></a></li>
-        <li><a title="Accede a la pagina de contacto con la empresa" href="#contacto"><b>6.Contácte con nosotros</b></a></li>
-      </ul>
-    </nav>
-    <!--content-->
-    <div id="presentacion">
-      <h2 class="center"><span>1. </span>Presentación</h1>
-        <p>A continuación, tiene un video que describirá cómo es el museo del prado y qué te puedes encontrar.</p>
-        <div class="frame-contenedor">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/6-d2uEjlU-c" title="Video presentación del Museo del Prado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Video del prado</iframe>
+                </ul>
+                <br>
+                <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
         </div>
-        <div class="transcripcion-container">
-          <p id="transcripcion"></p>
-          <p>
-            <a title="Mostrar la transcripción del video" onclick="transcribir()"><b><span id="transcripcionboton">Mostrar Transcripción</span></b></a>
-          </p>  
-          </div>
-        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
-    </div>
 
-    <div id="horario">
-      <h2 class="center"><span>2. </span>Horario</h1>
-        <table
-          summary="En la tabla se muestra el periodo de apertura de todos los días de la semana. Para los días que no son festivos, se puede apreciar que el horario es de 10:00 de la mañana a 20:00 de la noche excepto el domingo que el horario es de 10:00 de la mañana hasta las 17:00 de la tarde.
-        Por otra parte, para los días festivos, el horario es para todos los días de 10:00 de la mañana a 17:00 de la tarde. "
-          style="overflow-x:auto;">
-          <caption>Horario de apertura del Museo del Prado</caption>
-          <thead>
-            <tr>
-              <td></td>
-              <th scope="col">Lunes</th>
-              <th scope="col">Martes</th>
-              <th scope="col">Miércoles</th>
-              <th scope="col">Jueves</th>
-              <th scope="col">Viernes</th>
-              <th scope="col">Sábado</th>
-              <th scope="col">Domingo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">No Festivos</th>
-              <td>10-20 h</td>
-              <td>10-20 h</td>
-              <td>10-20 h</td>
-              <td>10-20 h</td>
-              <td>10-20 h</td>
-              <td>10-20 h</td>
-              <td>10-17 h</td>
-            </tr>
-            <tr>
-              <th scope="row">Festivos</th>
-              <td>10-17 h</td>
-              <td>10-17 h</td>
-              <td>10-17 h</td>
-              <td>10-17 h</td>
-              <td>10-17 h</td>
-              <td>10-17 h</td>
-              <td>10-17 h</td>
-            </tr>
-          </tbody>
-        </table>
-        <br>
-        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
-    </div>
+        <div id="reserva">
+            <h2 class="center"><span>4. </span>Reserva tu exposición guiada</h1>
+                <div id="content-form">
 
-    <div id="precios">
-      <h2 class="center"><span>3. </span>Precios</h1>
-        <ul>
-            <li>
-              <p><b>Entrada general:</b> 15 euros.</p>
-            </li>
-            <li>
-              <p><b>Entrada reducida:</b> 7,50 euros.</p>
-            </li>
-            <li>
-              <p><b>Entrada general y un ejemplar <em>"La Guía del prado"</em>:</b> 24 euros.</p>
-            </li>
-            <li>
-              <p><b>Entrada gratuita:</b> 0 euros.</p>
-            </li>  
-          </li>
-          <li>  
-              <p><b>Entrada de grupo guiada:</b> 50 euros por persona.</p>
-            </li>  
-              <p><i>* Durante las dos últimas horas de apertura, reducción del 50% en el precio de la entrada individual que corresponda. Venta exclusiva en taquilla.</i></p>
+                    <h2>Rellena el formulario</h2>
+                    <form action="#" name="myForm" id="form" onsubmit="return validateForm()" method="get">
+                        <p>Los campos obligatorios se indican con un <span class="reqField">*</span>.</p>
+                        <p>
+                            <label for="nombre"><b>Nombre:</b><span class="reqField">*</span><span class="element-invisible"
+                  id="nombreErrorHidden"></span></label><br />
+                            <input title="Escriba su nombre" id="nombre" type="text" name="textfield" aria-required="true" />
+                            <span class="errorMsg" id="nombreError"></span>
+                        </p>
+                        <p><label for="apellidos"><b>Apellidos:</b><span class="reqField">*</span><span class="element-invisible"
+                  id="apellidosErrorHidden"></span></label><br />
+                            <input title="Escriba sus apellidos" id="apellidos" type="text" name="textfield" aria-required="true" />
 
-        </ul>
-        <br>
-        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
-    </div>
+                            <span class="errorMsg" id="apellidosError"></span>
 
-    <div id="reserva">
-      <h2 class="center"><span>4. </span>Reserva tu exposición guiada</h1>
-        <div id="content-form">
-     
-          <h2>Rellena el formulario</h2>
-          <form action="#" name="myForm" id="form" onsubmit="return validateForm()" method="get">
-            <p>Los campos obligatorios se indican con un <span class="reqField">*</span>.</p>
-             <p>
-               <label for="nombre"><b>Nombre:</b><span class="reqField">*</span><span class="element-invisible" id="nombreErrorHidden"></span></label><br/>
-                <input title="Escriba su nombre" id="nombre" type="text" name="textfield" aria-required="true"/>
-               <span class="errorMsg" id="nombreError"></span>
-              </p>
-               <p><label for="apellidos"><b>Apellidos:</b><span class="reqField">*</span><span class="element-invisible" id="apellidosErrorHidden"></span></label><br />
-                <input title="Escriba sus apellidos" id="apellidos" type="text" name="textfield" aria-required="true"/>
-                
-                <span class="errorMsg" id="apellidosError"></span>
-                
-             </p>
-             <p><label for="email"><b>Email:</b><span class="reqField">*</span><span class="element-invisible" id="emailErrorHidden"></span></label><br />
-              <input id="email" title="Escriba su email" type="email" name="textfield" aria-required="true"/>
-              
-              <span class="errorMsg" id="emailError"></span>
-              
-           </p>
-             <div><label for="discapacidad"><b>Escriba su discapacidad</b></label><br/>
-                <input title="¿Tiene alguna discapacidad?" id="discapacidad" type="text" name="discapacidad" aria-describedby="sample-tip"/>
-             <div role="tooltip" id="discapacidad" aria-required="true">Ayuda: discapacidad auditiva, visual, cognitiva, motora ...</div>
-             <div>Le ayudaremos a seguir su exposición.</div>
-             </div>
-             <p>
-              <div><label for="fecha"><b>Fecha de asistencia</b><span class="reqField">*</span><span class="errorMsg" id="fechaError"></span></label><br/>
-                <input title="Escriba la fecha de asistencia. Día(2 digitos)/Mes(2 digitos)/Año(4 digitos)" type="date" id="fecha" onchange="cambiarFecha();" class="picker" aria-describedby="sample-tip" aria-required="true">
-                <div role="tooltip" id="sample-tip">Ayuda: por ejemplo, 20/08/2021</div>
-                <span class="fechaMsg" id="fechaError"></span>
-              <div class="result"></div>
-             </div>
-            </p>
-            </p>
-            <fieldset>
-              <legend  id="turnoLegend"><b>Elige tu turno:</b><span class="reqField">*</span><span class="errorMsg" id="turnoLegendError"></span></legend>
-              <input id="mañana" type="radio" name="turno" value="Mañana" checked/>
-              <label for="mañana">Mañana</label><br>
-              <input id="tarde" type="radio" name="turno" value="Tarde">
-              <label for="tarde">Tarde</label><br>
-           </fieldset>
-             <p>
-                <fieldset>
-                   <legend id="toppingsLegend"><b>Elige las exposiciones a las que asistirá</b><span class="reqField">*</span><span class="errorMsg" id="toppingsLegendError"></span></legend>
-                   <input id="mitologia" type="checkbox" name="toppings" value="Pasiones mitológicas - 3 euros">
-                  <label for="mitologia"><span aria-label="La exposición 'Pasiones mitológicas, añade 3 euros a tu pedido."><b>Pasiones mitológicas:</b></span> <span aria-hidden="true">3 euros.</span></label><br>
-                   <input id="greco" type="checkbox" name="toppings" value="El Greco en Illescas - 5 euros">
-                  <label for="greco"><span aria-label="La exposición 'El Greco en Illescas', añade 5 euros a tu pedido."><b>El Greco en Illescas:</b></span> <span aria-hidden="true">5 euros.</span></label><br>
-                  <input id="dioses" type="checkbox" name="toppings" value="Los Dioses del Prado - 7 euros">
-                  <label for="dioses"><span aria-label="La exposición 'Los Dioses del Prado, añade 7 euros a tu pedido."><b>Los Dioses del Prado:</b></span> <span aria-hidden="true">7 euros.</span></label><br>
-                  <input id="reencuentro" type="checkbox" name="toppings" value="El Reencuentro - 2 euros">
-                  <label for="reencuentro"><span aria-label="La exposición 'El Reencuentro, añade 2 euros a tu pedido."><b>El Reencuentro:</b></span> <span aria-hidden="true">2 euros.</span></label><br>
-                </fieldset>
-             </p>
-             <div>
-               <p>
-                 A continuación, se muestra el resumen de los datos de su reserva. Reviselos antes de enviar el formulario.
-               </p>
-               <ul id="resumen">
-                  <li id="nombreli"><b>Nombre completo: </b><span>Aún no ha rellenado su nombre. <b>(Obligatorio)*</b></span></li>
-                  <li id="apellidosli"><b>Apellidos: </b><span>Aún no ha rellenado sus apellidos. <b>(Obligatorio)*</b></span></li>
-                  <li id="emailli"><b>Email: </b><span>Aún no ha rellenado su email. <b>(Obligatorio)*</b></span></li>
-                  <li id="discapacidadli"><b>Discapacidad: </b><span>No tengo discapacidades.</span></li>
-                  <li id="fechali"><b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha de asistencia. <b>(Obligatorio)*</b></span></li>
-                  <li id="turnoli"><b>Escogiste turno de: </b><span>Mañana <b>(Correcto)</b></span></li>
-                  <li><b>Exposiciones reservadas: </b></li>
-                  <ul id="listali">
-                    
-                  </ul>
-               </ul>
-               <p id="precio"></p>
-               <p id="success"></p>
-             </div>
-             
-             <br>
-             <div class="form-botones">
-               <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario"/>
-              <input title="Reiniciar campos del formulario" type="reset" name="reset" class="submit" value="Reiniciar formulario"/>
-             </div>
-         </form>
-         </div>
-        </p>
-        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+                        </p>
+                        <p><label for="email"><b>Email:</b><span class="reqField">*</span><span class="element-invisible"
+                  id="emailErrorHidden"></span></label><br />
+                            <input id="email" title="Escriba su email" type="email" name="textfield" aria-required="true" />
+
+                            <span class="errorMsg" id="emailError"></span>
+
+                        </p>
+                        <div><label for="discapacidad"><b>Escriba su discapacidad</b></label><br />
+                            <input title="¿Tiene alguna discapacidad?" id="discapacidad" type="text" name="discapacidad" aria-describedby="sample-tip" />
+                            <div role="tooltip" id="discapacidad" aria-required="true">Ayuda: discapacidad auditiva, visual, cognitiva, motora ...</div>
+                            <div>Le ayudaremos a seguir su exposición.</div>
+                        </div>
+                        <p>
+                            <div><label for="fecha"><b>Fecha de asistencia</b><span class="reqField">*</span><span class="errorMsg"
+                  id="fechaError"></span></label><br />
+                                <input title="Escriba la fecha de asistencia. Día(2 digitos)/Mes(2 digitos)/Año(4 digitos)" type="date" id="fecha" onchange="cambiarFecha();" class="picker" aria-describedby="sample-tip" aria-required="true">
+                                <div role="tooltip" id="sample-tip">Ayuda: por ejemplo, 20/08/2021</div>
+                                <span class="fechaMsg" id="fechaError"></span>
+                                <div class="result"></div>
+                            </div>
+                        </p>
+                        </p>
+                        <fieldset>
+                            <legend id="turnoLegend"><b>Elige tu turno:</b><span class="reqField">*</span><span class="errorMsg" id="turnoLegendError"></span></legend>
+                            <input id="mañana" type="radio" name="turno" value="Mañana" checked />
+                            <label for="mañana">Mañana</label><br>
+                            <input id="tarde" type="radio" name="turno" value="Tarde">
+                            <label for="tarde">Tarde</label><br>
+                        </fieldset>
+                        <p>
+                            <fieldset>
+                                <legend id="toppingsLegend"><b>Elige las exposiciones a las que asistirá</b><span class="reqField">*</span><span class="errorMsg" id="toppingsLegendError"></span></legend>
+                                <input id="mitologia" type="checkbox" name="toppings" value="Pasiones mitológicas - 3 euros">
+                                <label for="mitologia"><span
+                  aria-label="La exposición 'Pasiones mitológicas, añade 3 euros a tu pedido."><b>Pasiones
+                    mitológicas:</b></span> <span aria-hidden="true">3 euros.</span></label><br>
+                                <input id="greco" type="checkbox" name="toppings" value="El Greco en Illescas - 5 euros">
+                                <label for="greco"><span
+                  aria-label="La exposición 'El Greco en Illescas', añade 5 euros a tu pedido."><b>El Greco en
+                    Illescas:</b></span> <span aria-hidden="true">5 euros.</span></label><br>
+                                <input id="dioses" type="checkbox" name="toppings" value="Los Dioses del Prado - 7 euros">
+                                <label for="dioses"><span
+                  aria-label="La exposición 'Los Dioses del Prado, añade 7 euros a tu pedido."><b>Los Dioses del
+                    Prado:</b></span> <span aria-hidden="true">7 euros.</span></label><br>
+                                <input id="reencuentro" type="checkbox" name="toppings" value="El Reencuentro - 2 euros">
+                                <label for="reencuentro"><span
+                  aria-label="La exposición 'El Reencuentro, añade 2 euros a tu pedido."><b>El Reencuentro:</b></span>
+                <span aria-hidden="true">2 euros.</span></label><br>
+                            </fieldset>
+                        </p>
+                        <div>
+                            <p>
+                                A continuación, se muestra el resumen de los datos de su reserva. Reviselos antes de enviar el formulario.
+                            </p>
+                            <ul id="resumen">
+                                <li id="nombreli"><b>Nombre completo: </b><span>Aún no ha rellenado su nombre.
+                    <b>(Obligatorio)*</b></span></li>
+                                <li id="apellidosli"><b>Apellidos: </b><span>Aún no ha rellenado sus apellidos.
+                    <b>(Obligatorio)*</b></span></li>
+                                <li id="emailli"><b>Email: </b><span>Aún no ha rellenado su email. <b>(Obligatorio)*</b></span></li>
+                                <li id="discapacidadli"><b>Discapacidad: </b><span>No tengo discapacidades.</span></li>
+                                <li id="fechali"><b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha de asistencia.
+                    <b>(Obligatorio)*</b></span></li>
+                                <li id="turnoli"><b>Escogiste turno de: </b><span>Mañana <b>(Correcto)</b></span></li>
+                                <li><b>Exposiciones reservadas: </b></li>
+                                <ul id="listali">
+
+                                </ul>
+                            </ul>
+                            <p id="precio"></p>
+                            <p id="success"></p>
+                        </div>
+
+                        <br>
+                        <div class="form-botones">
+                            <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario" />
+                            <input title="Reiniciar campos del formulario" type="reset" name="reset" class="submit" value="Reiniciar formulario" />
+                        </div>
+                    </form>
+                </div>
+                </p>
+                <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+        </div>
+        <div id="cuadros">
+            <h2 class="center"><span>5. </span>Nuestros cuadros</h1>
+                <p>Este es un recorrido en el que encontrarás los 16 cuadros que te permitirán <b>disfrutar</b> del arte de la pintura. </p>
+                <p>Especialmente apto para ir con niños y niñas, cada cuadro ha sido elegido para dar a conocer quince pintores y una pintora fundamentales en la historia del arte. Ante ellos podrás recrearte en una actividad tan gratificante como es la
+                    <b>contemplación</b>.</p>
+                <p>Son pinturas elegidas por su <b>riqueza de detalles</b>, por su <b>pluralidad de géneros</b>, por su
+                    <b>representatividad de estilos</b>, por su <b>excelencia</b> y por su <b>vocación inclusiva</b>.
+                </p>
+                <p>En el siguiente <b>enlace</b>, podrá ver estos 16 cuadros. <b>Disfrute de ellos. </b><a title="Ver los cuadros" href="exposiciones.html">Ver los cuadros</a></p>
+
+                <br>
+                <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+        </div>
+        <div id="contacto">
+            <h2 class="center"><span>6. </span>Póngase en contácto con nosotros</h1>
+                <ul>
+                    <p>Queremos que el <b>Museo del Prado</b> sea <b>para todos</b> y ofrecer la <b>mejor experencia</b> para nuestro público.</p>
+                    <p>Por favor, para cualquier <b>duda</b> o <b>aclaración</b>, no dude en contactar con nosotros a través del siguiente enlace:</p>
+                    <p> <a title="Contactar con el Museo del Prado" href="aboutUs.html">Contactar con el museo</a></p>
+                    <br>
+                    <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+        </div>
     </div>
-    <div id="cuadros">
-      <h2 class="center"><span>5. </span>Nuestros cuadros</h1>
-        <p>Este es un recorrido en el que encontrarás los 16 cuadros que te permitirán <b>disfrutar</b> del arte de la pintura. </p>
-        <p>Especialmente apto para ir con niños y niñas, cada cuadro ha sido elegido para dar a conocer quince pintores y una pintora fundamentales en la historia del arte. Ante ellos podrás recrearte en una actividad tan gratificante como es la <b>contemplación</b>.</p>
-        <p>Son pinturas elegidas por su <b>riqueza de detalles</b>, por su <b>pluralidad de géneros</b>, por su <b>representatividad de estilos</b>, por su <b>excelencia</b> y por su <b>vocación inclusiva</b>.</p>
-        <p>En el siguiente <b>enlace</b>, podrá ver estos 16 cuadros. <b>Disfrute de ellos. </b><a title="Ver los cuadros" href="exposiciones.html">Ver los cuadros</a></p>
-        
-        <br>
-        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
-      </div>
-      <div id="contacto">
-        <h2 class="center"><span>6. </span>Póngase en contácto con nosotros</h1>
-          <ul>
-            <p>Queremos que el <b>Museo del Prado</b> sea <b>para todos</b> y ofrecer la <b>mejor experencia</b> para nuestro público.</p>
-            <p>Por favor, para cualquier <b>duda</b> o <b>aclaración</b>, no dude en contactar con nosotros a través del siguiente enlace:</p><p> <a title="Contactar con el Museo del Prado" href="aboutUs.html">Contactar con el museo</a></p>
-          <br>
-          <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
-      </div>
-      </div>
 </body>
 
 </html>

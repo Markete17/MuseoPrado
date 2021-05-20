@@ -1,261 +1,296 @@
-body{
-background-color: rgb(155, 195, 253);
-background-size:cover;
-background-repeat:no-repeat;
-display:flex;
-flex-direction:column;
-min-height:100vh;
-margin:0;
-align-items:center;
-justify-content:center;
-}
-#content-wrapper{
-background:white;
-display:flex;
-flex-direction:column;
-min-height:100vh;
-width:70vw;
-margin:4em;
-padding:2.5em;
+body {
+    background-color: rgb(155, 195, 253);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
 }
 
-header{
-display:flex;
-flex-direction:column;
-align-items:center;
-font-size:60px;
-
-margin-bottom:60px;
-border-bottom:1px solid black;
+#content-wrapper {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 70vw;
+    margin: 4em;
+    padding: 2.5em;
 }
 
-.menu{
-display:flex;
-flex-direction:row;
-justify-content:center;
-text-align: center;
-list-style: none;
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 60px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid black;
 }
-.menu li{
-  display: inline;
-  border: 1px solid rgb(0, 0, 0);
-  margin: 2px;
-  padding: 5px;
-  background: rgb(243, 243, 243);
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
 }
+
+.menu li {
+    display: inline;
+    border: 1px solid rgb(0, 0, 0);
+    margin: 2px;
+    padding: 5px;
+    background: rgb(243, 243, 243);
+}
+
 .menu a {
-  text-decoration: none;
+    text-decoration: none;
 }
-.menu a:hover{
-color:rgb(0, 0, 0);
+
+.menu a:hover {
+    color: rgb(0, 0, 0);
 }
 
 
 /*media queries*/
+
 table {
-  border-collapse: collapse;
-  width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
+
 @media screen and (max-width: 850px) {
-  table {
-      width:100%;
-      border-collapse: collapse;
-  }
-  thead {
-      display: none;
-  }
-  tr:nth-of-type(2n) {
-      background-color: inherit;
-  }
-  tr td:first-child {
-      background: #f0f0f0;
-      font-weight:bold;
-      font-size:1.3em;
-      color: cadetblue;
-  }
-  tbody td {
-      display: block;
-      text-align:center;
-  }
-  tbody td:before {
-      content: attr(data-th);
-      display: block;
-      text-align:center;
-  }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+        font-size: 1.3em;
+        color: cadetblue;
+    }
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align: center;
+    }
 }
 
-@media screen and (max-width:1481px){
-#menu ul li{
-font-size:13px;}
-}
-@media screen and (max-width:1311px){
-ul{
-  display:flex;
-  flex-direction:column;
-  margin-top: 80px;
-}
-#menu ul li{
-  font-size:16px;
-}
-}
-.horario{
-  overflow-x:auto;
+@media screen and (max-width:1481px) {
+    #menu ul li {
+        font-size: 13px;
+    }
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-.volver{
-  border: 1px solid rgb(0, 0, 0);
-  margin: 2px;
-  padding: 5px;
-  background: rgb(243, 243, 243);
-  text-decoration: none;
-  cursor: pointer;
+@media screen and (max-width:1311px) {
+    ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 80px;
+    }
+    #menu ul li {
+        font-size: 16px;
+    }
 }
 
-.transcripcion-container{
-  text-align: center;
+.horario {
+    overflow-x: auto;
 }
 
-#transcripcion{
-  text-align: center;
+th,
+td {
+    text-align: left;
+    padding: 8px;
 }
 
-.transcripcion-container a{
-  border: 1px solid rgb(0, 0, 0);
-  margin: 2px;
-  text-align: center;
-  padding: 5px;
-  background: rgb(243, 243, 243);
-  text-decoration: none;
-  cursor: pointer;
+.volver {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 2px;
+    padding: 5px;
+    background: rgb(243, 243, 243);
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.center{
-  text-align: center;
-  background-color: rgb(203, 221, 248);
-}
-.title{
-  text-align: center;
+.transcripcion-container {
+    text-align: center;
 }
 
-#cita{
-  display: flex;
-  justify-content: center;
+#transcripcion {
+    text-align: center;
 }
-#textcita{
-margin-left: 0%;
-margin-right: 10%;
+
+.transcripcion-container a {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 2px;
+    text-align: center;
+    padding: 5px;
+    background: rgb(243, 243, 243);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
+    background-color: rgb(203, 221, 248);
+}
+
+.title {
+    text-align: center;
+}
+
+#cita {
+    display: flex;
+    justify-content: center;
+}
+
+#textcita {
+    margin-left: 0%;
+    margin-right: 10%;
 }
 
 #imagecita img {
-  width: 40%;
-  margin-left: 40%;
+    width: 40%;
+    margin-left: 40%;
 }
 
-.navtext{
-  text-decoration:underline;
+.navtext {
+    text-decoration: underline;
 }
 
-              /* Accessible form styles begin */
+
+/* Accessible form styles begin */
+
 #form fieldset {
-	margin-bottom: 20px;
-  padding: 5px;
+    margin-bottom: 20px;
+    padding: 5px;
 }
+
 #form select {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
-#form .errorMsg, .reqField {
-	color:#bb4e00;
+
+#form .errorMsg,
+.reqField {
+    color: #bb4e00;
 }
+
 #form input {
-  padding: 4px;
-  color:#333;
+    padding: 4px;
+    color: #333;
 }
+
+
 /* Accessible form styles end */
 
+
 /* hides content from sighted users, can be accessed by screen reader */
+
 #form .element-invisible {
-	position: absolute !important;
-	height: 1px; width: 1px; 
-	overflow: hidden;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
 }
+
 
 /* set up hidden tooltip */
+
 [role="tooltip"] {
-	display: none;
-	padding: 0.25em;
-	margin: 0;
-	color: #666;
-	width: 100%;
-	z-index: 2;
-	font-weight: normal;
-	font-style: italic;
+    display: none;
+    padding: 0.25em;
+    margin: 0;
+    color: #666;
+    width: 100%;
+    z-index: 2;
+    font-weight: normal;
+    font-style: italic;
 }
 
+
 /* reveal associated tooltip on focus of preceeding input */
-#form input:focus + [role="tooltip"] {
-	display: block;
+
+#form input:focus+[role="tooltip"] {
+    display: block;
 }
+
 
 /* Reference: http://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/ */
 
+
 /* GLOBALS */
+
 *,
 *:after,
 *:before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 0;
-	/*    margin: 0; */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    /*    margin: 0; */
 }
 
 ::selection {
-	background: white; 
+    background: white;
 }
 
 ::-moz-selection {
-	background: red; 
+    background: red;
 }
 
 #content-form {
-  width: 60%;
-  margin: 0 auto;
-  min-width: 320px;
-  max-width: 800px;
+    width: 60%;
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 800px;
 }
-.submit{
-  cursor: pointer;
+
+.submit {
+    cursor: pointer;
 }
 
 #resumen li {
-  padding-bottom: 30px;
+    padding-bottom: 30px;
 }
 
-#listali li{
-  padding-bottom: 15px;
-  margin-left: 5%;
+#listali li {
+    padding-bottom: 15px;
+    margin-left: 5%;
 }
 
 .frame-contenedor {
-  text-align: center;
-	position: relative;
-	padding-bottom: 56.25%; /*panorámico*/
-	padding-top: 25px;
-	height: 0;
+    text-align: center;
+    position: relative;
+    padding-bottom: 56.25%;
+    /*panorámico*/
+    padding-top: 25px;
+    height: 0;
 }
+
 .frame-contenedor iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
-.form-botones{
-  text-align: center;
+
+.form-botones {
+    text-align: center;
 }
