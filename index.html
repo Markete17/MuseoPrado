@@ -19,7 +19,6 @@
           d="M19.604 2.562l-3.346 3.137c-1.27-.428-2.686-.699-4.243-.699-7.569 0-12.015 6.551-12.015 6.551s1.928 2.951 5.146 5.138l-2.911 2.909 1.414 1.414 17.37-17.035-1.415-1.415zm-6.016 5.779c-3.288-1.453-6.681 1.908-5.265 5.206l-1.726 1.707c-1.814-1.16-3.225-2.65-4.06-3.66 1.493-1.648 4.817-4.594 9.478-4.594.927 0 1.796.119 2.61.315l-1.037 1.026zm-2.883 7.431l5.09-4.993c1.017 3.111-2.003 6.067-5.09 4.993zm13.295-4.221s-4.252 7.449-11.985 7.449c-1.379 0-2.662-.291-3.851-.737l1.614-1.583c.715.193 1.458.32 2.237.32 4.791 0 8.104-3.527 9.504-5.364-.729-.822-1.956-1.99-3.587-2.952l1.489-1.46c2.982 1.9 4.579 4.327 4.579 4.327z" />
       </svg>
     </span>
-
     <span class="toggleAccessPanelLabelInstruct">
       <span class="toggleAccessPanelLabel" aria-label="Opciones de Accesibilidad Visual">Opciones de Accesibilidad Visual</span>
       <span class="toggleAccessPanelInstructions">(Pulsa la tecla Q)</span>
@@ -106,20 +105,27 @@
     <h1 id="menu" class="center">Menu</h1>
     <nav>
       <ul class="menu">
-        <li><a title="Accede a las posibles exposiciones" href="index.html"><b>Home</b></a></li>
-        <li><a title="Accede a las posibles exposiciones" href="exposiciones.html"><b>Exposiciones</b></a></li>
-        <li><a title="Accede a la pagina de contacto con la empresa" href="aboutUs.html"><b>Sobre Nosotros</b></a></li>
         <li><a title="Accede a la presentación" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
         <li><a title="Accede al horario" href="#horario"><b>2.Ir a Horario</b></a></li>
         <li><a title="Accede a la lista de precios" href="#precios"><b>3.Ir a Precios</b></a></li>
-        <li><a title="Accede a la reserva de tu exposición guiada" href="#reserva"><b>4.Reserva tu exposición</b></a></li>
+        <li><a title="Accede a la reserva de tu exposición guiada" href="#reserva"><b>4.Reservar exposición</b></a></li>
+        <li><a title="Accede a las exposiciones del museo" href="#cuadros"><b>5.Nuestros cuadros</b></a></li>
+        <li><a title="Accede a la pagina de contacto con la empresa" href="#contacto"><b>6.Contácte con nosotros</b></a></li>
       </ul>
     </nav>
     <!--content-->
     <div id="presentacion">
       <h2 class="center"><span>1. </span>Presentación</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/6-d2uEjlU-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Video del prado</iframe>
-        <p>Beth received 1<sup>st</sup> place in the 9<sup>th</sup> grade science competition.</p>
+        <p>A continuación, tiene un video que describirá cómo es el museo del prado y qué te puedes encontrar.</p>
+        <div class="frame-contenedor">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6-d2uEjlU-c" title="Video presentación del Museo del Prado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Video del prado</iframe>
+        </div>
+        <div class="transcripcion-container">
+          <p id="transcripcion"></p>
+          <p>
+            <a title="Mostrar la transcripción del video" onclick="transcribir()"><b><span id="transcripcionboton">Mostrar Transcripción</span></b></a>
+          </p>  
+          </div>
         <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
     </div>
 
@@ -227,7 +233,7 @@
              <p>
               <div><label for="fecha"><b>Fecha de asistencia</b><span class="reqField">*</span><span class="errorMsg" id="fechaError"></span></label><br/>
                 <input title="Escriba la fecha de asistencia. Día(2 digitos)/Mes(2 digitos)/Año(4 digitos)" type="date" id="fecha" onchange="cambiarFecha();" class="picker" aria-describedby="sample-tip" aria-required="true">
-                <div role="tooltip" id="sample-tip">Ayuda: por ejemplo, 04/06/2021</div>
+                <div role="tooltip" id="sample-tip">Ayuda: por ejemplo, 20/08/2021</div>
                 <span class="fechaMsg" id="fechaError"></span>
               <div class="result"></div>
              </div>
@@ -248,7 +254,7 @@
                    <input id="greco" type="checkbox" name="toppings" value="El Greco en Illescas - 5 euros">
                   <label for="greco"><span aria-label="La exposición 'El Greco en Illescas', añade 5 euros a tu pedido."><b>El Greco en Illescas:</b></span> <span aria-hidden="true">5 euros.</span></label><br>
                   <input id="dioses" type="checkbox" name="toppings" value="Los Dioses del Prado - 7 euros">
-                  <label for="dioses"><span aria-label="La exposición 'Los Dioses del Prado, añade 7 euros a tu pedido."><b>Los Dioses del Prado:</b></span> <span aria-hidden="true">8 euros.</span></label><br>
+                  <label for="dioses"><span aria-label="La exposición 'Los Dioses del Prado, añade 7 euros a tu pedido."><b>Los Dioses del Prado:</b></span> <span aria-hidden="true">7 euros.</span></label><br>
                   <input id="reencuentro" type="checkbox" name="toppings" value="El Reencuentro - 2 euros">
                   <label for="reencuentro"><span aria-label="La exposición 'El Reencuentro, añade 2 euros a tu pedido."><b>El Reencuentro:</b></span> <span aria-hidden="true">2 euros.</span></label><br>
                 </fieldset>
@@ -263,25 +269,45 @@
                   <li id="emailli"><b>Email: </b><span>Aún no ha rellenado su email. <b>(Obligatorio)*</b></span></li>
                   <li id="discapacidadli"><b>Discapacidad: </b><span>No tengo discapacidades.</span></li>
                   <li id="fechali"><b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha de asistencia. <b>(Obligatorio)*</b></span></li>
-                  <li id="turnoli"><b>Escogiste turno de: </b><span>Mañana <b>(Correcto)*</b></span></li>
+                  <li id="turnoli"><b>Escogiste turno de: </b><span>Mañana <b>(Correcto)</b></span></li>
                   <li><b>Exposiciones reservadas: </b></li>
                   <ul id="listali">
                     
                   </ul>
                </ul>
-               <p id="precio">
-              </p>
+               <p id="precio"></p>
+               <p id="success"></p>
              </div>
              
              <br>
-             <div><input type="submit" name="submit" class="submit" value="Enviar formulario"/>
-                <input type="reset" name="reset" class="submit" value="Reiniciar formulario"/>
+             <div class="form-botones">
+               <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario"/>
+              <input title="Reiniciar campos del formulario" type="reset" name="reset" class="submit" value="Reiniciar formulario"/>
              </div>
          </form>
          </div>
         </p>
         <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
     </div>
+    <div id="cuadros">
+      <h2 class="center"><span>5. </span>Nuestros cuadros</h1>
+        <p>Este es un recorrido en el que encontrarás los 16 cuadros que te permitirán <b>disfrutar</b> del arte de la pintura. </p>
+        <p>Especialmente apto para ir con niños y niñas, cada cuadro ha sido elegido para dar a conocer quince pintores y una pintora fundamentales en la historia del arte. Ante ellos podrás recrearte en una actividad tan gratificante como es la <b>contemplación</b>.</p>
+        <p>Son pinturas elegidas por su <b>riqueza de detalles</b>, por su <b>pluralidad de géneros</b>, por su <b>representatividad de estilos</b>, por su <b>excelencia</b> y por su <b>vocación inclusiva</b>.</p>
+        <p>En el siguiente <b>enlace</b>, podrá ver estos 16 cuadros. <b>Disfrute de ellos. </b><a title="Ver los cuadros" href="exposiciones.html">Ver los cuadros</a></p>
+        
+        <br>
+        <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+      </div>
+      <div id="contacto">
+        <h2 class="center"><span>6. </span>Póngase en contácto con nosotros</h1>
+          <ul>
+            <p>Queremos que el <b>Museo del Prado</b> sea <b>para todos</b> y ofrecer la <b>mejor experencia</b> para nuestro público.</p>
+            <p>Por favor, para cualquier <b>duda</b> o <b>aclaración</b>, no dude en contactar con nosotros a través del siguiente enlace:</p><p> <a title="Contactar con el Museo del Prado" href="aboutUs.html">Contactar con el museo</a></p>
+          <br>
+          <a class="volver" title="Volver al menú" href="#menu"><b>Volver al menú</b></a>
+      </div>
+      </div>
 </body>
 
 </html>

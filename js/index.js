@@ -8,6 +8,7 @@ var turno;
 var precio;
 
 $(function () {
+  $('body').css('font-family',fonts.list[0]+',sans-serif');
   $('#nombre').on('input',function(e){
     nombre = $('#nombre').val();
     if(nombre==''){
@@ -126,7 +127,7 @@ function comprobarExposiciones(){
       let exp=exposiciones[i];
       $('#listali').append('<li id="exp'+i+'"><span>'+exp+'</span></li>');
     }
-    $('#precio').html('<b>Su reserva tendrá un precio total de: </b>'+precio+'euros.');
+    $('#precio').html('<b>Su reserva tendrá un precio total de: </b>'+precio+' euros. <p>Si los datos son los correctos, <b>puede enviar el formulario</b>.</p>');
   }
 }
 // Define Accessibility Panel
@@ -196,8 +197,8 @@ var exposiciones = {
 function fontReplace() {
   fonts.index++;
   let i = (fonts.index) % fonts.list.length;
-  var body = $('body');
-  body.css('font-family',fonts.list[i]+',sans-serif');
+  $('body').css('font-family',fonts.list[i]+',sans-serif');
+  $('input').css('font-family',fonts.list[i]+',sans-serif');
 }
 
 var fontSize = 0;
@@ -251,7 +252,7 @@ document.addEventListener("click", function(event){
   
   if(el == toggleAccessPanel){
       if(!accessPanel.classList.contains("visible") == true){
-        $('body').css('margin-right','15%');
+        $('body').css('margin-right','25%');
         accessPanel.classList.toggle("visible");
       } else{
         accessPanel.classList.toggle("visible");
@@ -276,7 +277,7 @@ document.addEventListener("click", function(event){
     contrastBg = [255,255,255];
     contrastText = [0,0,0];
     fontSize = 0;
-      $('body').css('margin-right','15%');
+      $('body').css('margin-right','25%');
 
     for (var i = 0; i < 3; i++){
       bgColorSliders[i].value = 255;
@@ -362,7 +363,7 @@ document.addEventListener("keydown", function(event){
   
   	if(key == "81" || key == "27"){
       if(!accessPanel.classList.contains("visible") == true){
-        $('body').css('margin-right','15%');
+        $('body').css('margin-right','25%');
         accessPanel.classList.add("visible").focus();
       } else{
         $('body').css('margin-right','');
@@ -564,14 +565,16 @@ function validateForm() {
 	}
 	//if a form field is not valid, do not submit form
 	if (formValid == 0){
-		console.log("hola");
     return false;
 	} else{
+    $('#success').html('<b>'+nombre+' '+apellidos+'</b> ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>'+email+'</b> para continuar con su reserva.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
     for(let i=0;i<6;i++){
       $('#exp'+i).remove();
     }
     $('#precio').html('');
     $('#errorexposiciones').remove();
+    
+    return false;
   }
 }
 
@@ -620,5 +623,25 @@ function validateEmail(email) {
   if(email!=null){
     return email.includes('@') && email.includes('.');
   }
-  
+}
+
+function transcribir(){
+  let texto = $('#transcripcionboton').text();
+  if(texto=='Mostrar Transcripción'){
+    $('#transcripcion').html('<p>Ahora del Museo del Prado se ha escrito o dicho casi todo se podría afirmar que no quedan adjetivos que no se hayan utilizado para alabar sus extraordinarias colecciones que le valieron el premio princesa de asturias de comunicación y humanidades en 2019&nbsp</p>'+
+      '<p>[M&uacute;sica]&nbsp;</p>'+
+      '<p>Ese mismo a&ntilde;o recibi&oacute; el conocido como &oacute;scar de internet porque puede que el museo sea del siglo 19 pero desde luego no se ha quedado anclado en el pasado&nbsp;</p>'+
+      '<p>[M&uacute;sica]</p>'+
+      '<p>Tiene expuestas m&aacute;s de 1700 obras y otras 27.000 permanecen en los almacenes por falta de espacio y ello a pesar de las sucesivas ampliaciones que lo han convertido en un complejo con cuatro edificios y 45.000 metros cuadrados de superficie total</p>'+
+      '<p>[M&uacute;sica]</p>'+
+      '<p>Las colecciones del prado son el reflejo de los gustos de la monarqu&iacute;a espa&ntilde;ola que fue adquiriendo las piezas a lo largo de la historia como propietarios que eran alg&uacute;n que otro privilegio se permitieron por ejemplo entre 1827 y 1838 el museo cont&oacute; con una sala en la que se expon&iacute;an desnudos femeninos conocida como la sala reservada a la que s&oacute;lo pod&iacute;an acceder reyes y nobles pero no el p&uacute;blico en general se ve que la moral no era igual para todos como ya imaginar&aacute;n es imposible enumerar obras y artistas apuntamos aqu&iacute; el nombre de tres que han merecido una estatua en el exterior del museo</p>'+
+      '<p>[M&uacute;sica]&nbsp;</p>'+
+      '<p>Cubillo en un sur en el oeste Vel&aacute;zquez y Goya al norte el &uacute;nico que mira de frente al museo y el autor con m&aacute;s obra colgada en nuestra pinacoteca m&aacute;s universal este edificio aleda&ntilde;o es el cas&oacute;n del buen Retiro tambi&eacute;n pertenece al Prado y tuvo el privilegio de acoger el Guernica de Picasso cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989 en 1992 fue trasladado a nuestro siguiente destino&nbsp;</p>'+
+      '<p>[M&uacute;sica]</p>');
+      $('#transcripcionboton').text('Ocultar Transcripción');
+  }
+  else{
+    $('#transcripcion').html('');
+    $('#transcripcionboton').text('Mostrar Transcripción');
+  }
 }
