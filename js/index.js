@@ -109,6 +109,7 @@ function comprobarExposiciones() {
             $('#exp' + i).remove();
         }
         $('#precio').html('');
+        $('#precio').removeClass('precio');
         $('#errorexposiciones').remove();
         $('#listali').append('<li id="errorexposiciones"><span>Aún no ha añadido ninguna exposición a su reserva. (Añadir al menos una es obligatorio)*</span></li>')
     } else {
@@ -120,7 +121,8 @@ function comprobarExposiciones() {
             let exp = exposiciones[i];
             $('#listali').append('<li id="exp' + i + '"><span>' + exp + '</span></li>');
         }
-        $('#precio').html('<b>Su reserva tendrá un precio total de: </b>' + precio + ' euros. <p>Si los datos son los correctos, <b>puede enviar el formulario</b>.</p>');
+        $('#precio').addClass('precio');
+        $('#precio').html('<b>Su reserva tendrá un precio total de: ' + +precio+' euros.</b><p>Si los datos son los correctos,<b>puede enviar el formulario</b>.</p>');
     }
 }
 // Define Accessibility Panel
@@ -628,16 +630,17 @@ function validateEmail(email) {
 function transcribir() {
     let texto = $('#transcripcionboton').text();
     if (texto == 'Mostrar Transcripción') {
-        $('#transcripcion').html('<p>Ahora del Museo del Prado se ha escrito o dicho casi todo se podría afirmar que no quedan adjetivos que no se hayan utilizado para alabar sus extraordinarias colecciones que le valieron el premio princesa de asturias de comunicación y humanidades en 2019&nbsp</p>' +
-            '<p>[M&uacute;sica]&nbsp;</p>' +
-            '<p>Ese mismo a&ntilde;o recibi&oacute; el conocido como &oacute;scar de internet porque puede que el museo sea del siglo 19 pero desde luego no se ha quedado anclado en el pasado&nbsp;</p>' +
-            '<p>[M&uacute;sica]</p>' +
-            '<p>Tiene expuestas m&aacute;s de 1700 obras y otras 27.000 permanecen en los almacenes por falta de espacio y ello a pesar de las sucesivas ampliaciones que lo han convertido en un complejo con cuatro edificios y 45.000 metros cuadrados de superficie total</p>' +
-            '<p>[M&uacute;sica]</p>' +
-            '<p>Las colecciones del prado son el reflejo de los gustos de la monarqu&iacute;a espa&ntilde;ola que fue adquiriendo las piezas a lo largo de la historia como propietarios que eran alg&uacute;n que otro privilegio se permitieron por ejemplo entre 1827 y 1838 el museo cont&oacute; con una sala en la que se expon&iacute;an desnudos femeninos conocida como la sala reservada a la que s&oacute;lo pod&iacute;an acceder reyes y nobles pero no el p&uacute;blico en general se ve que la moral no era igual para todos como ya imaginar&aacute;n es imposible enumerar obras y artistas apuntamos aqu&iacute; el nombre de tres que han merecido una estatua en el exterior del museo</p>' +
-            '<p>[M&uacute;sica]&nbsp;</p>' +
-            '<p>Cubillo en un sur en el oeste Vel&aacute;zquez y Goya al norte el &uacute;nico que mira de frente al museo y el autor con m&aacute;s obra colgada en nuestra pinacoteca m&aacute;s universal este edificio aleda&ntilde;o es el cas&oacute;n del buen Retiro tambi&eacute;n pertenece al Prado y tuvo el privilegio de acoger el Guernica de Picasso cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989 en 1992 fue trasladado a nuestro siguiente destino&nbsp;</p>' +
-            '<p>[M&uacute;sica]</p>');
+        $('#transcripcion').html('<p>Del <b>Museo del Prado</b> se ha escrito o dicho casi todo. Se podría afirmar que no quedan adjetivos que no se hayan utilizado, para alabar sus extraordinarias colecciones que le valieron el <b>premio Princesa de Asturias de Comunicación y Humanidades</b> en 2019&nbsp.</p>' +
+            '<p><b>[Música]</b>&nbsp;</p>' +
+            '<p>Ese mismo a&ntilde;o recibi&oacute; el conocido como <b>Óscar de Internet</b>, porque puede que el museo sea del siglo XIX, pero desde luego no se ha quedado anclado en el pasado&nbsp;</p>' +
+            '<p><b>[Música]</b>&nbsp;</p>' +
+            '<p>Tiene expuestas m&aacute;s de <b>1700 obras</b> y otras <b>27.000</b> permanecen en los almacenes por falta de espacio y ello a pesar de las sucesivas ampliaciones que lo han convertido en un complejo con cuatro edificios y <b>45.000 metros cuadrados de superficie total.</b></p>' +
+            '<p><b>[Música]</b>&nbsp;</p>' +
+            '<p>Las colecciones del prado son el reflejo de los gustos de la <b>monarqu&iacute;a espa&ntilde;ola</b> que fue adquiriendo las piezas a lo largo de la historia como propietarios que eran alg&uacute;n que otro privilegio se permitieron por ejemplo entre 1827 y 1838 el museo cont&oacute; con una sala en la que se expon&iacute;an desnudos femeninos conocida como la sala reservada a la que s&oacute;lo pod&iacute;an acceder reyes y nobles pero no el p&uacute;blico en general se ve que la moral no era igual para todos como ya imaginar&aacute;n es imposible enumerar obras y artistas apuntamos aqu&iacute; el nombre de tres que han merecido una estatua en el exterior del museo.</p>' +
+            '<p><b>[Música]</b>&nbsp;</p>' +
+            '<p><b>Murillo</b> en un sur, en el oeste <b>Vel&aacute;zquez</b> y <b>Goya</b> al norte. El &uacute;nico que mira de frente al museo y el autor con m&aacute;s obra colgada en nuestra pinacoteca m&aacute;s universal.'+
+            '<p>Este edificio aleda&ntilde;o es el cas&oacute;n del buen <b>Retiro</b> tambi&eacute;n pertenece al <b>Prado</b> y tuvo el privilegio de acoger el <b>Guernica de Picasso</b> cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989. En 1992 fue trasladado a nuestro siguiente destino&nbsp;.</p>' +
+            '<p><b>[Música]</b>&nbsp;</p>');
         $('#transcripcionboton').text('Ocultar Transcripción');
     } else {
         $('#transcripcion').html('');
