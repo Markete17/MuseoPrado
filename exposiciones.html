@@ -7,13 +7,64 @@
     <title>Exposciones</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <script src="js/index.js"></script>
 </head>
 <body>
-    <ul class="menu">
-        <li><a title="Accede a las posibles exposiciones" href="index.html"><b>Home</b></a></li>
-        <li><a title="Accede a las posibles exposiciones" href="exposiciones.html"><b>Exposiciones</b></a></li>
-        <li><a title="Accede a la pagina de contacto con la empresa" href="aboutUs.html"><b>Sobre Nosotros</b></a></li>
-    </ul>
-    <h1>Hola perro</h1>
+    <div id="content-wrapper">
+        <h1 id="menu" class="center">Menú</h1>
+        <ul class="menu">
+            <li><a title="Accede a las posibles exposiciones" href="index.html"><b>Home</b></a></li>
+            <li><a title="Accede a las posibles exposiciones" href="exposiciones.html"><b>Exposiciones</b></a></li>
+            <li><a title="Accede a la pagina de contacto con la empresa" href="aboutUs.html"><b>Sobre Nosotros</b></a></li>
+            <li><a  title="Accede a la pagina de contacto con la empresa"  href="#" onclick="mostrar()"><b>No toques Marina</b></a></li>
+        </ul>
+        <h1 id ="MensajeMarina">Hola perra</h1>
+    
+        <div id="PasionesMitologicas">
+            <h1 class="center">Pasiones Mitológicas</h1>
+            <p class="Descripcion">La exposición "Pasiones mitológicas: Tiziano, Veronese, Allori, Rubens, Ribera, Poussin, Van Dyck, Velázquez”, que permanecerá en la sala C del edificio Jerónimos con el patrocinio exclusivo de la Fundación BBVA, constituye una ocasión irrepetible para contemplar una de las mejores selecciones de la pintura mitológica que se hizo en Europa en los siglos XVI y XVII.</p>
+            <div id="galleria1">
+                <ul class="galeria">
+                    <li><a href="#img1"><img src="img/exposiciones/pasiones-mitologicas/img-1.jpg" alt="Cuadro 1 de pasiones mitologicas"></a></li>
+                    <li><a href="#img2"><img src="img/exposiciones/pasiones-mitologicas/img-2.jpg" alt="Cuadro 2 de pasiones mitologicas"></a></li>
+                    <li><a href="#img3"><img src="img/exposiciones/pasiones-mitologicas/img-3.jpg" alt="Cuadro 3 de pasiones mitologicas"></a></li>
+                </ul>
+                <div class="modal" id="img1">
+                    <h3>Cuadro 1</h3>
+                    <div class="imagen">
+                        <a href="#img3">&#60;</a>
+                        <a href="#img1"><img src="img/exposiciones/pasiones-mitologicas/img-1.jpg"></a>
+                        <a href="#img2">></a>
+                    </div>
+                    <a class="cerrar" href="">X</a>
+                </div>
+
+                <div class="modal" id="img2">
+                    <h3>Cuadro 2</h3>
+                    <div class="imagen">
+                        <a href="#img1">&#60;</a>
+                        <a href="#img2"><img src="img/exposiciones/pasiones-mitologicas/img-2.jpg"></a>
+                        <a href="#img3">></a>
+                    </div>
+                    <a class="cerrar" href="">X</a>
+                </div>
+
+                <div class="modal" id="img3">
+                    <h3>Cuadro 3</h3>
+                    <div class="imagen">
+                        <a href="#img2">&#60;</a>
+                        <a href="#img3"><img src="img/exposiciones/pasiones-mitologicas/img-3.jpg"></a>
+                        <a href="#img1">></a>
+                    </div>
+                    <a class="cerrar" href="">X</a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

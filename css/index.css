@@ -306,3 +306,7 @@ td {
     width: 50%;
     height: 100%;
 }
+
+#MensajeMarina{
+    display: none;
+}
