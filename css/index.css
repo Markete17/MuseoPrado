@@ -310,3 +310,28 @@ td {
 #MensajeMarina{
     display: none;
 }
+
+
+#aboutus-c1 div{
+    width: 50%;
+}
+#aboutus-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#aboutus-content img{
+    width: 50%;
+}
+
+
+#mapa{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#form-contacto{
+    margin-top: 10%;
+}
