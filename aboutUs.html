@@ -7,10 +7,84 @@
     
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Acerca de nosotros</title>
     
 </head>
-<body>
+<div id="accessPanel" class="accessibility-panel" accesskey="q">
+    <button id="toggleAccessPanel">
+    <span class="ada-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M19.604 2.562l-3.346 3.137c-1.27-.428-2.686-.699-4.243-.699-7.569 0-12.015 6.551-12.015 6.551s1.928 2.951 5.146 5.138l-2.911 2.909 1.414 1.414 17.37-17.035-1.415-1.415zm-6.016 5.779c-3.288-1.453-6.681 1.908-5.265 5.206l-1.726 1.707c-1.814-1.16-3.225-2.65-4.06-3.66 1.493-1.648 4.817-4.594 9.478-4.594.927 0 1.796.119 2.61.315l-1.037 1.026zm-2.883 7.431l5.09-4.993c1.017 3.111-2.003 6.067-5.09 4.993zm13.295-4.221s-4.252 7.449-11.985 7.449c-1.379 0-2.662-.291-3.851-.737l1.614-1.583c.715.193 1.458.32 2.237.32 4.791 0 8.104-3.527 9.504-5.364-.729-.822-1.956-1.99-3.587-2.952l1.489-1.46c2.982 1.9 4.579 4.327 4.579 4.327z" />
+      </svg>
+    </span>
+    <span class="toggleAccessPanelLabelInstruct">
+      <span class="toggleAccessPanelLabel" aria-label="Opciones de Accesibilidad Visual">Opciones de Accesibilidad
+        Visual</span>
+      <span class="toggleAccessPanelInstructions">(Pulsa la tecla Q)</span>
+    </span>
+  </button>
+    <h4>Opciones de Accesibilidad Visual</h4>
+    <div class="button-group">
+        <p><b>Pulsa para cerrar el menu.</b></p>
+        <button title="Cerrar el menú de opciones" id="closeAccessPanel" accesskey="esc">Cerrar Opciones (ESC)</button>
+    </div>
+    <div class="button-group">
+        <p><b>Pulsa para cambiar la letra.</b></p>
+        <button title="Cambiar el estilo de la letra" id="fontSwap" accesskey="a">Cambiar letra (A)</button>
+    </div>
+    <div class="button-group">
+        <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
+        <button title="Disminuir el tamaño de la letra" id="fontDecrease" accesskey="d">Disminuir (D)</button>
+        <button title="Aumentar el tamaño de la letra" id="fontIncrease" accesskey="f">Aumentar (F)</button>
+    </div>
+    <div class="button-group">
+        <p><b>Pulsa para subrayar los enlaces.</b></p>
+        <button title="Resaltar con color amarillo los enlaces" id="highlightLinks" accesskey="s">Subrayar enlaces
+      (S)</button>
+    </div>
+
+    <div class="button-group">
+        <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
+        <button title="Reiniciar el estilo de la página" id="reset" accesskey="r">Reiniciar (R)</button>
+        <button title="Eliminar el estilo de la página" id="remove" accesskey="e">Eliminar (E)</button>
+    </div>
+    <div class="contrastTextChange button-group">
+        <p><b>Cambia el contraste del texto.</b></p>
+        <button title="Iluminar el color del texto" id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
+        <button title="Oscurecer el color del texto" id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
+    </div>
+    <div class="rangeSliders">
+        <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+        <p>Verde:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+        <p>Azul:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
+    </div>
+    <div class="contrastBgChange button-group">
+        <p><b>Cambia el contraste del fondo.</b></p>
+        <button title="Iluminar el fondo" id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
+        <button title="Oscurecer el fondo" id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
+    </div>
+    <div class="rangeSliders">
+        <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
+        <p>Verde:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="195">
+        <p>Azul:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="253">
+    </div>
+    <div class="contrastBgArticleChange button-group">
+        <p><b>Cambia el contraste del artículo.</b></p>
+        <button title="Iluminar el color del fondo del artículo" id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="b">Iluminar artículo(B)</button>
+        <button title="Oscurecer el color del fondo del artículo" id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="n">Oscurecer artículo (N)</button>
+    </div>
+    <div class="rangeSliders">
+        <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+        <p>Verde:</p> <input id="rangeArticle2" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+        <p>Azul:</p> <input id="rangeArticle3" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+    </div>
+</div>
+<!-- Accessibility Helper Panel - End -->
+<body id="inicio">
+    <script src="js/index.js"></script>
     <div id="content-wrapper">
         <ul class="menu">
             <li><a title="Accede a las posibles exposiciones" href="index.html"><b>Home</b></a></li>

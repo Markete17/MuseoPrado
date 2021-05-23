@@ -647,7 +647,3 @@ function transcribir() {
         $('#transcripcionboton').text('Mostrar Transcripción');
     }
 }
-
-function mostrar(){
-    document.getElementById('MensajeMarina').style.display = 'block';
-    }
