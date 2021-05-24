@@ -307,11 +307,6 @@ td {
     height: 100%;
 }
 
-#MensajeMarina{
-    display: none;
-}
-
-
 #aboutus-c1 div{
     width: 50%;
 }
@@ -332,6 +327,20 @@ td {
     justify-content: center;
 }
 
-#form-contacto{
-    margin-top: 10%;
+.desc-pamuk{
+    margin-left: 38%;
+}
+.desc-foto{
+    text-align: center;
+}
+.enlace{
+    text-align: center;
+}
+.enlace a{
+    border: 1px solid rgb(0, 0, 0);
+    margin: 2px;
+    padding: 5px;
+    background: rgb(243, 243, 243);
+    text-decoration: none;
+    cursor: pointer;
 }

@@ -85,55 +85,195 @@
 <body id="inicio">
     <script src="js/index.js"></script>
     <div id="content-wrapper">
-        <h1 id="menu" class="center">Menú</h1>
+        <div class="navegacion">
+            <div id="block1">
+                <b>Navegación:</b> <a title="Volver a inicio" href="index.html#exposiciones" class="navtext">Volver a Inicio</a> / <a title="Ir a Exposiciones" href="#exposiciones" class="navtext">Exposiciones</a>
+            </div>
+            <div id="block2">
+                <h1 class="title">Museo del prado</h1>
+            </div>
+        </div>
+        <h2 id="menu" class="center">Menú - Exposiciones</h2>
+        <nav>
         <ul class="menu">
-            <li><a title="Accede a las posibles exposiciones" href="index.html"><b>Home</b></a></li>
-            <li><a title="Accede a las posibles exposiciones" href="exposiciones.html"><b>Exposiciones</b></a></li>
-            <li><a title="Accede a la pagina de contacto con la empresa" href="aboutUs.html"><b>Sobre Nosotros</b></a></li>
+            <li><a title="Accede a la exposición: Pasiones Mitológicas" href="#PasionesMitologicas"><b>1.Pasiones Mitológicas</b></a></li>
+            <li><a title="Accede a la exposición: El Greco en Illescas" href="#greco"><b>2.El Greco en Illescas</b></a></li>
+            <li><a title="Accede a la exposición: Los Dioses del Prado" href="#dioses"><b>3.Los Dioses del Prado</b></a></li>
+            <li><a title="Accede a la exposición: El Reencuentro" href="#reencuentro"><b>4.El Reencuentro</b></a></li>
         </ul>
-    
+        </nav>
         <div id="PasionesMitologicas">
-            <h1 class="center">Pasiones Mitológicas</h1>
-            <p class="Descripcion">La exposición "Pasiones mitológicas: Tiziano, Veronese, Allori, Rubens, Ribera, Poussin, Van Dyck, Velázquez”, que permanecerá en la sala C del edificio Jerónimos con el patrocinio exclusivo de la Fundación BBVA, constituye una ocasión irrepetible para contemplar una de las mejores selecciones de la pintura mitológica que se hizo en Europa en los siglos XVI y XVII.</p>
+            <h2 class="center">Pasiones Mitológicas</h2>
+            <p class="Descripcion">La exposición <b>"Pasiones mitológicas: Tiziano, Veronese, Allori, Rubens, Ribera, Poussin, Van Dyck, Velázquez”</b>, que permanecerá en la sala C del edificio Jerónimos con el patrocinio exclusivo de la Fundación BBVA, constituye una ocasión irrepetible <b>para contemplar una de las mejores selecciones de la pintura mitológica que se hizo en Europa en los siglos XVI y XVII.</b></p>
             <div id="galleria1">
                 <ul class="galeria">
-                    <li><a href="#img1"><img src="img/exposiciones/pasiones-mitologicas/img-1.jpg" alt="Cuadro 1 de pasiones mitologicas"></a></li>
-                    <li><a href="#img2"><img src="img/exposiciones/pasiones-mitologicas/img-2.jpg" alt="Cuadro 2 de pasiones mitologicas"></a></li>
-                    <li><a href="#img3"><img src="img/exposiciones/pasiones-mitologicas/img-3.jpg" alt="Cuadro 3 de pasiones mitologicas"></a></li>
+                    <li><a href="#img1" title="Ampliar cuadro: Poesías de Tiziano"><img src="img/exposiciones/pasiones-mitologicas/img-1.jpg" alt="Cuadro: Poesías de Tiziano"></a><div><p><b>Cuadro: </b>Poesías</p><p><b>Autor: </b>Tiziano</p></div></li>
+                    <li><a href="#img2" title="Ampliar cuadro: La Naturaleza de Rubens"><img src="img/exposiciones/pasiones-mitologicas/img-2.jpg" alt="Cuadro: La Naturaleza de Rubens"></a><div><p><b>Cuadro: </b>La Naturaleza</p><p><b>Autor: </b>Rubens</p></p></div></li>
+                    <li><a href="#img3" title="Ampliar cuadro: La Realidad de Van Dyck"><img src="img/exposiciones/pasiones-mitologicas/img-3.jpg" alt="Cuadro: La Realidad de Van Dyck"></a><div><p><b>Cuadro: </b>La Realidad</p><p><b>Autor: </b>Van Dyck</p></div></li>
                 </ul>
                 <div class="modal" id="img1">
-                    <h3>Cuadro 1</h3>
+                    <h3>Poesías de Tiziano</h3>
                     <div class="imagen">
-                        <a href="#img3">&#60;</a>
-                        <a href="#img1"><img src="img/exposiciones/pasiones-mitologicas/img-1.jpg"></a>
-                        <a href="#img2">></a>
+                        <a title="Ver anterior cuadro" href="#img3">&#60; Anterior</a>
+                        <img src="img/exposiciones/pasiones-mitologicas/img-1.jpg" alt="Cuadro: Posesías de Tiziano">
+                        <a title="Ver el siguiente cuadro" href="#img2">Siguiente ></a>
                     </div>
-                    <a class="cerrar" href="">X</a>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#PasionesMitologicas">Cerrar Imagen</a>
                 </div>
 
                 <div class="modal" id="img2">
-                    <h3>Cuadro 2</h3>
+                    <h3>La Naturaleza de Rubens</h3>
                     <div class="imagen">
-                        <a href="#img1">&#60;</a>
-                        <a href="#img2"><img src="img/exposiciones/pasiones-mitologicas/img-2.jpg"></a>
-                        <a href="#img3">></a>
+                        <a title="Ver anterior cuadro" href="#img1">&#60; Anterior</a>
+                        <img src="img/exposiciones/pasiones-mitologicas/img-2.jpg" alt="Cuadro: La Naturaleza de Rubens">
+                        <a title="Ver el siguiente cuadro" href="#img3">Siguiente ></a>
                     </div>
-                    <a class="cerrar" href="">X</a>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#PasionesMitologicas">Cerrar Imagen</a>
                 </div>
 
                 <div class="modal" id="img3">
-                    <h3>Cuadro 3</h3>
+                    <h3>La Realidad de Van Dyck</h3>
                     <div class="imagen">
-                        <a href="#img2">&#60;</a>
-                        <a href="#img3"><img src="img/exposiciones/pasiones-mitologicas/img-3.jpg"></a>
-                        <a href="#img1">></a>
+                        <a title="Ver anterior cuadro" href="#img2">&#60; Anterior</a>
+                        <img src="img/exposiciones/pasiones-mitologicas/img-3.jpg" alt="Cuadro: La Realidad de Van Dyck"></a>
+                        <a title="Ver el siguiente cuadro" href="#img1">Siguiente ></a>
                     </div>
-                    <a class="cerrar" href="">X</a>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#PasionesMitologicas">Cerrar Imagen</a>
                 </div>
-                
-                
-                
             </div>
+            <a class="volver" title="Volver al menú" href="#inicio"><b>Volver al menú</b></a>
+        </div>
+        <div id="greco">
+            <h2 class="center">El Greco en Illescas</h2>
+            <p class="Descripcion">La exposición <b>"El Greco en Illescas"</b>, Unas obras de acondicionamiento han permitido que el <b>Museo Nacional del Prado</b> se convierta en anfitrión de las <b>cinco pinturas del Greco</b> que se conservan en el <b>Santuario de Nuestra Señora de la Caridad de Illescas (Toledo)</b>.</p>
+            <div id="galleria1">
+                <ul class="galeria">
+                    <li><a href="#img4" title="Ampliar cuadro: Posesías de Tiziano"><img src="img/exposiciones/greco/img-4.jpg" alt="Cuadro: Escritor del Arte"></a><div><p><b>Cuadro: </b>Escritor del Arte</p><p><b>Autor: </b>Greco</p></div></li>
+                    <li><a href="#img5" title="Ampliar cuadro: La Naturaleza de Rubens"><img src="img/exposiciones/greco/img-5.jpg" alt="Cuadro: El Nacimiento"></a><div><p><b>Cuadro: </b>En Nacimiento</p><p><b>Autor: </b>Greco</p></div></li>
+                    <li><a href="#img6" title="Ampliar cuadro: La Coronación"><img src="img/exposiciones/greco/img-6.jpg" alt="Cuadro: La Coronación"></a><div><p><b>Cuadro: </b>La Coronación</p><p><b>Autor: </b>Greco</p></div></li>
+                </ul>
+                <div class="modal" id="img4">
+                    <h3>Escritor del Arte</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img6">&#60; Anterior</a>
+                        <img src="img/exposiciones/greco/img-4.jpg" alt="Cuadro: Escritor del Arte">
+                        <a title="Ver el siguiente cuadro" href="#img5">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#greco">Cerrar Imagen</a>
+                </div>
+
+                <div class="modal" id="img5">
+                    <h3>El Nacimiento</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img4">&#60; Anterior</a>
+                        <img src="img/exposiciones/greco/img-5.jpg" alt="Cuadro: El Nacimiento">
+                        <a title="Ver el siguiente cuadro" href="#img6">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#greco">Cerrar Imagen</a>
+                </div>
+
+                <div class="modal" id="img6">
+                    <h3>La Coronación</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img5">&#60; Anterior</a>
+                        <img src="img/exposiciones/greco/img-6.jpg" alt="Cuadro: La Coronación">
+                        <a title="Ver el siguiente cuadro" href="#img4">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#greco">Cerrar Imagen</a>
+                </div>
+            </div>
+            <a class="volver" title="Volver al menú" href="#inicio"><b>Volver al menú</b></a>
+        </div>
+        <div id="dioses">
+            <h2 class="center">Los Dioses del Prado</h2>
+            <p class="Descripcion">
+                La exposición <b>"Los Dioses del Prado"</b>, es una exposición inédita organizada por el Museo Nacional del Prado y la Obra Social ”la Caixa” que ofrece una amplia mirada sobre la <b>mitología clásica</b> y su representación a través de <b>pinturas, esculturas y objetos fechados entre los años centrales del siglo I a. C. y finales del siglo XVIII</b>.
+            </p>
+                <p class="Descripcion">Se trata de una propuesta diacrónica, articulada en ocho secciones de carácter temático, que <b>ofrece simultáneamente diferentes representaciones de dioses o distintas interpretaciones de un episodio mitológico</b> para apreciar la riqueza iconográfica, geográfica y cronológica de las colecciones del Museo del Prado a través de <b>50 obras</b> de autores esenciales de la historia del arte como <b>Rubens, Ribera, o Zurbarán</b>, entre muchos otros.</p>
+            <div id="galleria1">
+                <ul class="galeria">
+                    <li><a href="#img7" title="Ampliar cuadro: Arte y Mito"><img src="img/exposiciones/dioses/img-7.jpg" alt="Cuadro: Arte y Mito"></a><div><p><p><b>Cuadro: </b>Arte y Mito</p><p><b>Autor: </b>Rubens</p></p></div></li>
+                    <li><a href="#img8" title="Ampliar cuadro: Las Nueve Musas"><img src="img/exposiciones/dioses/img-8.jpg" alt="Cuadro: Las Nueve Musas"></a><div><p><b>Cuadro: </b>Las Nueve Musas</p><p><b>Autor: </b>Moreau</p></div></li>
+                    <li><a href="#img9" title="Ampliar cuadro: Venus y Adonis"><img src="img/exposiciones/dioses/img-9.jpg" alt="Cuadro: Venus y Adonis"></a><div><p><b>Cuadro: </b>Venus y Adonis</p><p><b>Autor: </b>Tiziano</p></div></li>
+                </ul>
+                <div class="modal" id="img7">
+                    <h3>Arte y Mito</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img9">&#60; Anterior</a>
+                        <img src="img/exposiciones/dioses/img-7.jpg" alt="Cuadro: Arte y Mito">
+                        <a title="Ver el siguiente cuadro" href="#img8">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#dioses">Cerrar Imagen</a>
+                </div>
+
+                <div class="modal" id="img8">
+                    <h3>Las Nueve Musas</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img7">&#60; Anterior</a>
+                        <img src="img/exposiciones/dioses/img-8.jpg" alt="Cuadro: Las Nueve Musas">
+                        <a title="Ver el siguiente cuadro" href="#img9">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#dioses">Cerrar Imagen</a>
+                </div>
+
+                <div class="modal" id="img9">
+                    <h3>Venus y Adonis</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img8">&#60; Anterior</a>
+                        <img src="img/exposiciones/dioses/img-9.jpg" alt="Cuadro: Venus y Adonis">
+                        <a title="Ver el siguiente cuadro" href="#img7">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#dioses">Cerrar Imagen</a>
+                </div>
+            </div>
+            <a class="volver" title="Volver al menú" href="#inicio"><b>Volver al menú</b></a>
+        </div>
+        <div id="reencuentro">
+            <h2 class="center">El Reencuentro</h2>
+            <p class="Descripcion">
+                <b>La Galería Central</b>, un amplio espacio arquitectónico bañado con luz natural, se constituye en la columna vertebral de este nuevo recorrido con la exposición de buena parte de sus obras más emblemáticas para <b>ofrecer una experiencia única e inédita</b>.
+            </p>
+            <p class="Descripcion">
+                <b>La Anunciación de Fra Angelico y El Descendimiento de Van der Weyden</b>, reunidos por primera vez, dan la bienvenida a los visitantes en un recorrido generoso en diálogos excepcionales.
+            </p>
+                <p class="Descripcion"><b>Los Saturno de Goya y Rubens</b> podrán contemplarse juntos, y <b>Las Meninas y Las Hilanderas</b> compartirán espacio en la Sala XII, junto a un excepcional “retablo” conformado por <b>los bufones de Velázquez.</b></p>
+            <div id="galleria1">
+                <ul class="galeria">
+                    <li><a href="#img10" title="Ampliar cuadro: La Anunciación"><img src="img/exposiciones/reencuentro/img-10.jpg" alt="Cuadro: La Anunciación"></a><div><p><b>Cuadro: </b>La Anunciación</p><p><b>Autor: </b>Fra Angélico</p></div></li>
+                    <li><a href="#img11" title="Ampliar cuadro: El Descendimiento"><img src="img/exposiciones/reencuentro/img-11.jpg" alt="Cuadro: El Descendimiento"></a><div><p><b>Cuadro: </b>El Descendimiento</p><p><b>Autor: </b>Van der Weyden</p></div></li>
+                    <li><a href="#img12" title="Ampliar cuadro: Las Meninas"><img src="img/exposiciones/reencuentro/img-12.jpg" alt="Cuadro: Las Meninas"></a><div><p><b>Cuadro: </b>Las Meninas</p><p><b>Autor: </b>Goya</p></div></li>
+                </ul>
+                <div class="modal" id="img10">
+                    <h3>La Anunciación</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img12">&#60; Anterior</a>
+                        <img src="img/exposiciones/reencuentro/img-10.jpg" alt="Cuadro: La Anunciación">
+                        <a title="Ver el siguiente cuadro" href="#img11">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#reencuentro">Cerrar Imagen</a>
+                </div>
+
+                <div class="modal" id="img11">
+                    <h3>El Descendimiento</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img10">&#60; Anterior</a>
+                        <img src="img/exposiciones/reencuentro/img-11.jpg" alt="Cuadro: El Descendimiento">
+                        <a title="Ver el siguiente cuadro" href="#img12">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#reencuentro">Cerrar Imagen</a>
+                </div>
+
+                <div class="modal" id="img12">
+                    <h3>Las Meninas</h3>
+                    <div class="imagen">
+                        <a title="Ver anterior cuadro" href="#img11">&#60; Anterior</a>
+                        <img src="img/exposiciones/reencuentro/img-12.jpg" alt="Cuadro: Las Meninas">
+                        <a title="Ver el siguiente cuadro" href="#img10">Siguiente ></a>
+                    </div>
+                    <a title="Cerrar la imagen actual" class="cerrar" href="#reencuentro">Cerrar Imagen</a>
+                </div>
+            </div>
+            <a class="volver" title="Volver al menú" href="#inicio"><b>Volver al menú</b></a>
         </div>
     </div>
 

@@ -16,6 +16,7 @@ $(function() {
         } else {
             $('#nombreli').html('<b>Nombre completo: </b><span>' + nombre + '. <b>(Correcto)</b></span>');
         }
+        $('#success').html('');
     });
     $('#apellidos').on('input', function(e) {
         apellidos = $('#apellidos').val();
@@ -24,6 +25,7 @@ $(function() {
         } else {
             $('#apellidosli').html('<b>Apellidos: </b><span>' + apellidos + '. <b>(Correcto)</b></span>');
         }
+        $('#success').html('');
     });
     $('#email').on('input', function(e) {
         email = $('#email').val();
@@ -32,6 +34,7 @@ $(function() {
         } else {
             $('#emailli').html('<b>Email: </b><span>' + email + '. <b>(Correcto)</b></span>');
         }
+        $('#success').html('');
     });
     $('#fecha').on('input', function(e) {
         fecha = $('#fecha').val();
@@ -40,6 +43,7 @@ $(function() {
         } else {
             $('#fechali').html('<b>Fecha de asistencia: </b><span>' + fecha + '. <b>(Correcto)</b></span>');
         }
+        $('#success').html('');
     });
     $('#discapacidad').on('input', function(e) {
         discapacidad = $('#discapacidad').val();
@@ -48,6 +52,7 @@ $(function() {
         } else {
             $('#emailli').html('<b>Discapacidad: </b>' + discapacidad + '. <b>(Correcto)</b></span>');
         }
+        $('#success').html('');
     });
     $('input[name=turno]').on('input', function(e) {
         if ($('#mañana').is(':checked')) {
@@ -55,12 +60,14 @@ $(function() {
         } else {
             turno = $('#tarde').val();
         }
+        $('#success').html('');
 
         $('#turnoli').html('<b>Escogiste turno de: </b><span>' + turno + '<b>.(Correcto)</b></span>');
 
     });
     $('input[type=checkbox]').on('input', function(e) {
         comprobarExposiciones();
+        $('#success').html('');
     });
     comprobarExposiciones();
     $('input[name=reset]').on('click', function() {
@@ -68,12 +75,14 @@ $(function() {
             $('#exp' + i).remove();
         }
         $('#precio').html('');
+        $('#precio').removeClass('precio');
         $('#errorexposiciones').remove();
         $('#listali').append('<li id="errorexposiciones"><span>Aún no ha añadido ninguna exposición a su reserva. (Añadir al menos una es obligatorio)*</span></li>')
+        $('#success').html('');
     })
 
 });
-
+var precio
 function comprobarExposiciones() {
     let mitologia = '';
     let greco = '';
@@ -124,6 +133,7 @@ function comprobarExposiciones() {
         $('#precio').addClass('precio');
         $('#precio').html('<b>Su reserva tendrá un precio total de: ' + +precio+' euros.</b><p>Si los datos son los correctos,<b>puede enviar el formulario</b>.</p>');
     }
+    this.precio=precio;
 }
 // Define Accessibility Panel
 
@@ -532,6 +542,7 @@ function darkenArticle() {
 //Form validation
 var formValid;
 
+
 function validateForm() {
     if (window.confirm("¿Desea enviar el formulario?")) {
         //set initial value of formValid to true
@@ -568,15 +579,48 @@ function validateForm() {
         if (formValid == 0) {
             return false;
         } else {
-            $('#success').html('<b>' + nombre + ' ' + apellidos + '</b> ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para continuar con su reserva.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
+            $('#precio').html('<b>Su reserva tendrá un precio total de: '+precio+' euros.</b>');
+            $('#success').html('<b>Hola' + nombre + ' ' + apellidos + '</b>, ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para continuar con su reserva y confirmar los datos.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
             for (let i = 0; i < 6; i++) {
                 $('#exp' + i).remove();
             }
-            $('#precio').html('');
+            
             $('#errorexposiciones').remove();
 
             return false;
         }
+    }
+}
+function validateAbout(){
+    if (window.confirm("¿Desea enviar el formulario?")) {
+        //set initial value of formValid to true
+        aboutValid = 1;
+        resetErrorsAbout();
+        var nombreAbout = document.forms["myForm"]["nombre"].value;
+        if (nombreAbout == "") {
+            applyError("nombre", "&nbsp;Debes ingresar tu nombre.");
+        }
+        var apellidosAbout = document.forms["myForm"]["apellidos"].value;
+        if (apellidosAbout == "") {
+            applyError("apellidos", "&nbsp;Debes ingresar tus apellidos.");
+        }
+        var emailAbout = document.forms["myForm"]["email"].value;
+        if (email == "") {
+            applyError("email", "&nbsp;El correo que has introducido no es correcto. Ej: museo@gmail.com");
+        }
+        var mensajeAbout = document.forms["myForm"]["mensaje"].value;
+        if (mensajeAbout == "") {
+            applyError("mensaje", "&nbsp;El mensaje que has introducido no es correcto.");
+        }
+        //if a form field is not valid, do not submit form
+        if (formValid == 0) {
+            return false;
+        } else {
+            $('#success').html('<b>Hola' + nombreAbout + ' ' + apellidosAbout + '</b>, ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para ver nuestra respuesta en las próximas 24 horas.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
+
+            return false;
+        }
+
     }
 }
 
@@ -589,7 +633,7 @@ function applyError(errorFieldId, errorMessage) {
     document.getElementById(errorMessageId).innerHTML = errorMessage; //puts error in span tag
     document.getElementById(errorFieldId).focus(); //puts focus on field with error
     formValid = 0; //sets global formValid variable to false
-
+    aboutvalid = 0;
 }
 
 //validates grouped form fields like checkboxes or radio buttons. Accepts the name of the group to be validated.
@@ -615,6 +659,14 @@ function resetErrors() {
     document.getElementById("turnoLegendError").innerHTML = "";
 }
 
+//resets error messages so they are turned off
+function resetErrorsAbout() {
+    document.getElementById("nombreError").innerHTML = "";
+    document.getElementById("apellidosError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("mensajeError").innerHTML = "";
+}
+
 function cambiarFecha() {
     let fecha = $('#fecha').val();
     let array = fecha.split("-");
@@ -630,7 +682,7 @@ function validateEmail(email) {
 function transcribir() {
     let texto = $('#transcripcionboton').text();
     if (texto == 'Mostrar Transcripción') {
-        $('#transcripcion').html('<p>Del <b>Museo del Prado</b> se ha escrito o dicho casi todo. Se podría afirmar que no quedan adjetivos que no se hayan utilizado, para alabar sus extraordinarias colecciones que le valieron el <b>premio Princesa de Asturias de Comunicación y Humanidades</b> en 2019&nbsp.</p>' +
+        $('#transcripcion').html('<p>A continuación, se muestra la transcripción del video:</p><p>"Del <b>Museo del Prado</b> se ha escrito o dicho casi todo. Se podría afirmar que no quedan adjetivos que no se hayan utilizado, para alabar sus extraordinarias colecciones que le valieron el <b>premio Princesa de Asturias de Comunicación y Humanidades</b> en 2019&nbsp.</p>' +
             '<p><b>[Música]</b>&nbsp;</p>' +
             '<p>Ese mismo a&ntilde;o recibi&oacute; el conocido como <b>Óscar de Internet</b>, porque puede que el museo sea del siglo XIX, pero desde luego no se ha quedado anclado en el pasado&nbsp;</p>' +
             '<p><b>[Música]</b>&nbsp;</p>' +
@@ -639,7 +691,7 @@ function transcribir() {
             '<p>Las colecciones del prado son el reflejo de los gustos de la <b>monarqu&iacute;a espa&ntilde;ola</b> que fue adquiriendo las piezas a lo largo de la historia como propietarios que eran alg&uacute;n que otro privilegio se permitieron por ejemplo entre 1827 y 1838 el museo cont&oacute; con una sala en la que se expon&iacute;an desnudos femeninos conocida como la sala reservada a la que s&oacute;lo pod&iacute;an acceder reyes y nobles pero no el p&uacute;blico en general se ve que la moral no era igual para todos como ya imaginar&aacute;n es imposible enumerar obras y artistas apuntamos aqu&iacute; el nombre de tres que han merecido una estatua en el exterior del museo.</p>' +
             '<p><b>[Música]</b>&nbsp;</p>' +
             '<p><b>Murillo</b> en un sur, en el oeste <b>Vel&aacute;zquez</b> y <b>Goya</b> al norte. El &uacute;nico que mira de frente al museo y el autor con m&aacute;s obra colgada en nuestra pinacoteca m&aacute;s universal.'+
-            '<p>Este edificio aleda&ntilde;o es el cas&oacute;n del buen <b>Retiro</b> tambi&eacute;n pertenece al <b>Prado</b> y tuvo el privilegio de acoger el <b>Guernica de Picasso</b> cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989. En 1992 fue trasladado a nuestro siguiente destino&nbsp;.</p>' +
+            '<p>Este edificio aleda&ntilde;o es el cas&oacute;n del buen <b>Retiro</b> tambi&eacute;n pertenece al <b>Prado</b> y tuvo el privilegio de acoger el <b>Guernica de Picasso</b> cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989. En 1992 fue trasladado a nuestro siguiente destino."</p>' +
             '<p><b>[Música]</b>&nbsp;</p>');
         $('#transcripcionboton').text('Ocultar Transcripción');
     } else {
