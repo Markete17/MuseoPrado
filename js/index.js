@@ -6,71 +6,92 @@ var fecha;
 var exposiciones;
 var turno;
 var precio;
-
-$(function() {
-    $('body').css('font-family', fonts.list[0] + ',sans-serif');
+function checkName(){
+    if (nombre == '') {
+        $('#nombreli').html('<b>Nombre completo: </b><span>Aún no ha rellenado su nombre. <b>(Obligatorio)*</b></span>');
+    } else {
+        $('#nombreli').html('<b>Nombre completo: </b><span>' + nombre + '. <b>(Correcto)</b></span>');
+    }
+}
+function checkApellidos(){
+    if (apellidos == '') {
+        $('#apellidosli').html('<b>Apellidos: </b><span>Aún no ha rellenado sus apellidos. <b>(Obligatorio)*</b></span>');
+    } else {
+        $('#apellidosli').html('<b>Apellidos: </b><span>' + apellidos + '. <b>(Correcto)</b></span>');
+    }
+}
+function checkEmail(){
+    if (!validateEmail(email)) {
+        $('#emailli').html('<b>Email: </b><span>Email incorrecto. Ejemplo: museo@gmail.com <b>(Obligatorio)*</b></span>');
+    } else {
+        $('#emailli').html('<b>Email: </b><span>' + email + '. <b>(Correcto)</b></span>');
+    }
+}
+function checkFecha(){
+    if (fecha == '') {
+        $('#fechali').html('<b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha. (Obligatorio)*</b></span>');
+    } else {
+        $('#fechali').html('<b>Fecha de asistencia: </b><span>' + fecha + '. <b>(Correcto)</b></span>');
+    }
+}
+function checkDiscapacidad(){
+    if (discapacidad == '') {
+        $('#discapacidadli').html('<b>Discapacidad: </b><span>No tengo discapacidades. <b>(Correcto)</b></span>');
+    } else {
+        $('#emailli').html('<b>Discapacidad: </b>' + discapacidad + '. <b>(Correcto)</b></span>');
+    }
+}
+function checkTurno(){
+    if ($('#mañana').is(':checked')) {
+        turno = $('#mañana').val();
+    } else {
+        turno = $('#tarde').val();
+    }
+    $('#turnoli').html('<b>Escogiste turno de: </b><span>' + turno + '<b>.(Correcto)</b></span>');
+}
+function checkResume(){
     $('#nombre').on('input', function(e) {
         nombre = $('#nombre').val();
-        if (nombre == '') {
-            $('#nombreli').html('<b>Nombre completo: </b><span>Aún no ha rellenado su nombre. <b>(Obligatorio)*</b></span>');
-        } else {
-            $('#nombreli').html('<b>Nombre completo: </b><span>' + nombre + '. <b>(Correcto)</b></span>');
-        }
+        checkName();
         $('#success').html('');
     });
     $('#apellidos').on('input', function(e) {
         apellidos = $('#apellidos').val();
-        if (apellidos == '') {
-            $('#apellidosli').html('<b>Apellidos: </b><span>Aún no ha rellenado sus apellidos. <b>(Obligatorio)*</b></span>');
-        } else {
-            $('#apellidosli').html('<b>Apellidos: </b><span>' + apellidos + '. <b>(Correcto)</b></span>');
-        }
+        checkApellidos();
         $('#success').html('');
     });
     $('#email').on('input', function(e) {
         email = $('#email').val();
-        if (!validateEmail(email)) {
-            $('#emailli').html('<b>Email: </b><span>Email incorrecto. Ejemplo: museo@gmail.com <b>(Obligatorio)*</b></span>');
-        } else {
-            $('#emailli').html('<b>Email: </b><span>' + email + '. <b>(Correcto)</b></span>');
-        }
+        checkEmail();
         $('#success').html('');
     });
     $('#fecha').on('input', function(e) {
         fecha = $('#fecha').val();
-        if (fecha == '') {
-            $('#fechali').html('<b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha. (Obligatorio)*</b></span>');
-        } else {
-            $('#fechali').html('<b>Fecha de asistencia: </b><span>' + fecha + '. <b>(Correcto)</b></span>');
-        }
+        checkFecha();
         $('#success').html('');
     });
     $('#discapacidad').on('input', function(e) {
         discapacidad = $('#discapacidad').val();
-        if (discapacidad == '') {
-            $('#discapacidadli').html('<b>Discapacidad: </b><span>No tengo discapacidades. <b>(Correcto)</b></span>');
-        } else {
-            $('#emailli').html('<b>Discapacidad: </b>' + discapacidad + '. <b>(Correcto)</b></span>');
-        }
+        checkDiscapacidad();
         $('#success').html('');
     });
     $('input[name=turno]').on('input', function(e) {
-        if ($('#mañana').is(':checked')) {
-            turno = $('#mañana').val();
-        } else {
-            turno = $('#tarde').val();
-        }
+        checkTurno();
         $('#success').html('');
-
-        $('#turnoli').html('<b>Escogiste turno de: </b><span>' + turno + '<b>.(Correcto)</b></span>');
-
     });
     $('input[type=checkbox]').on('input', function(e) {
         comprobarExposiciones();
         $('#success').html('');
     });
     comprobarExposiciones();
-    $('input[name=reset]').on('click', function() {
+}
+$(function() {
+    $('body').css('font-family', fonts.list[0] + ',sans-serif');
+
+    checkResume();
+    
+    $('#resetForm').on('click', function() {
+        console.log('hola');
         for (let i = 0; i < 6; i++) {
             $('#exp' + i).remove();
         }
@@ -79,6 +100,22 @@ $(function() {
         $('#errorexposiciones').remove();
         $('#listali').append('<li id="errorexposiciones"><span>Aún no ha añadido ninguna exposición a su reserva. (Añadir al menos una es obligatorio)*</span></li>')
         $('#success').html('');
+        resetErrors();
+        apellidos='';
+        checkApellidos();
+        nombre='';
+        checkName();
+        discapacidad='';
+        checkDiscapacidad();
+        email='';
+        checkEmail();
+        fecha='';
+        checkFecha();
+        turno='';
+        checkTurno();
+    })
+    $('#resetAbout').on('click', function() {
+        resetErrorsAbout();
     })
 
 });
@@ -584,9 +621,16 @@ function validateForm() {
             for (let i = 0; i < 6; i++) {
                 $('#exp' + i).remove();
             }
-            
             $('#errorexposiciones').remove();
-
+            $('#nombre').val('');
+            $('#apellidos').val('');
+            $('#email').val('');
+            $('#fecha').val('');
+            $('#discapacidad').val('');
+            $('#mitologia').prop('checked', false);
+            $('#greco').prop('checked', false);
+            $('#dioses').prop('checked', false);
+            $('#reencuentro').prop('checked', false);
             return false;
         }
     }
@@ -617,7 +661,10 @@ function validateAbout(){
             return false;
         } else {
             $('#success').html('<b>Hola' + nombreAbout + ' ' + apellidosAbout + '</b>, ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para ver nuestra respuesta en las próximas 24 horas.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
-
+            $('#nombre').val('');
+            $('#apellidos').val('');
+            $('#email').val('');
+            $('#mensaje').val('');
             return false;
         }
 
@@ -654,9 +701,13 @@ function validateGroup(groupName) {
 //resets error messages so they are turned off
 function resetErrors() {
     document.getElementById("nombreError").innerHTML = "";
+    document.getElementById("apellidosError").innerHTML = "";
     document.getElementById("nombreErrorHidden").innerHTML = "";
-    document.getElementById("toppingsLegendError").innerHTML = "";
+    document.getElementById("apellidosErrorHidden").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("fechaError").innerHTML = "";
     document.getElementById("turnoLegendError").innerHTML = "";
+    document.getElementById("toppingsLegendError").innerHTML = "";
 }
 
 //resets error messages so they are turned off

@@ -108,12 +108,12 @@
                 <img src="img/contact_us_img.jpg" alt="Contacte con nosotros" longdesc="Icono para contactar con nosotros">
                 <img src="img/about-us.png" alt="Imagen del Museo del Prado" longdesc="Es el edificio del Museo">
                 </div>
-                <div class="about1" id="ab2">
+                <div class="about1">
                     <div>
                         <h3>Envía tu mensaje</h3>
                         <div class="seperator"></div>
                     </div>
-                        <form action="#" name="myForm" id="form" onsubmit="return validateAbout()" method="get">
+                        <form action="#" name="myForm" id="formAbout" onsubmit="return validateAbout()" method="get">
                             <p>Los campos obligatorios se indican con un <span class="reqField">*</span>.</p>
                             <p>
                                 <label for="nombre"><b>Nombre:</b><span class="reqField">*</span><span class="element-invisible"
@@ -143,7 +143,7 @@
                             </div>
                             <br>
                             <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario" />
-                            <input title="Reiniciar campos del formulario" type="reset" name="reset" class="submit" value="Reiniciar formulario" />
+                            <input title="Reiniciar campos del formulario" type="reset" id="resetAbout" name="reset" class="submit" value="Reiniciar formulario" />
                             </form>
                             <p id="success"></p>
                 </div>
