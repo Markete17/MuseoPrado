@@ -307,9 +307,6 @@ td {
     height: 100%;
 }
 
-#aboutus-c1 div{
-    width: 50%;
-}
 #aboutus-content{
     display: flex;
     flex-direction: row;
@@ -317,9 +314,12 @@ td {
 }
 
 #aboutus-content img{
-    width: 50%;
+    width: 80%;
 }
 
+#ab2{
+    margin-right: 10%;
+}
 
 #mapa{
     display: flex;
