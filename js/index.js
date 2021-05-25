@@ -6,42 +6,49 @@ var fecha;
 var exposiciones;
 var turno;
 var precio;
-function checkName(){
+var indent = 0;
+
+function checkName() {
     if (nombre == '') {
         $('#nombreli').html('<b>Nombre completo: </b><span>Aún no ha rellenado su nombre. <b>(Obligatorio)*</b></span>');
     } else {
         $('#nombreli').html('<b>Nombre completo: </b><span>' + nombre + '. <b>(Correcto)</b></span>');
     }
 }
-function checkApellidos(){
+
+function checkApellidos() {
     if (apellidos == '') {
         $('#apellidosli').html('<b>Apellidos: </b><span>Aún no ha rellenado sus apellidos. <b>(Obligatorio)*</b></span>');
     } else {
         $('#apellidosli').html('<b>Apellidos: </b><span>' + apellidos + '. <b>(Correcto)</b></span>');
     }
 }
-function checkEmail(){
+
+function checkEmail() {
     if (!validateEmail(email)) {
         $('#emailli').html('<b>Email: </b><span>Email incorrecto. Ejemplo: museo@gmail.com <b>(Obligatorio)*</b></span>');
     } else {
         $('#emailli').html('<b>Email: </b><span>' + email + '. <b>(Correcto)</b></span>');
     }
 }
-function checkFecha(){
+
+function checkFecha() {
     if (fecha == '') {
         $('#fechali').html('<b>Fecha de asistencia: </b><span>Aún no ha rellenado la fecha. (Obligatorio)*</b></span>');
     } else {
         $('#fechali').html('<b>Fecha de asistencia: </b><span>' + fecha + '. <b>(Correcto)</b></span>');
     }
 }
-function checkDiscapacidad(){
+
+function checkDiscapacidad() {
     if (discapacidad == '') {
         $('#discapacidadli').html('<b>Discapacidad: </b><span>No tengo discapacidades. <b>(Correcto)</b></span>');
     } else {
         $('#emailli').html('<b>Discapacidad: </b>' + discapacidad + '. <b>(Correcto)</b></span>');
     }
 }
-function checkTurno(){
+
+function checkTurno() {
     if ($('#mañana').is(':checked')) {
         turno = $('#mañana').val();
     } else {
@@ -49,7 +56,8 @@ function checkTurno(){
     }
     $('#turnoli').html('<b>Escogiste turno de: </b><span>' + turno + '<b>.(Correcto)</b></span>');
 }
-function checkResume(){
+
+function checkResume() {
     $('#nombre').on('input', function(e) {
         nombre = $('#nombre').val();
         checkName();
@@ -89,9 +97,8 @@ $(function() {
     $('body').css('font-family', fonts.list[0] + ',sans-serif');
 
     checkResume();
-    
+
     $('#resetForm').on('click', function() {
-        console.log('hola');
         for (let i = 0; i < 6; i++) {
             $('#exp' + i).remove();
         }
@@ -101,17 +108,17 @@ $(function() {
         $('#listali').append('<li id="errorexposiciones"><span>Aún no ha añadido ninguna exposición a su reserva. (Añadir al menos una es obligatorio)*</span></li>')
         $('#success').html('');
         resetErrors();
-        apellidos='';
+        apellidos = '';
         checkApellidos();
-        nombre='';
+        nombre = '';
         checkName();
-        discapacidad='';
+        discapacidad = '';
         checkDiscapacidad();
-        email='';
+        email = '';
         checkEmail();
-        fecha='';
+        fecha = '';
         checkFecha();
-        turno='';
+        turno = '';
         checkTurno();
     })
     $('#resetAbout').on('click', function() {
@@ -120,6 +127,7 @@ $(function() {
 
 });
 var precio
+
 function comprobarExposiciones() {
     let mitologia = '';
     let greco = '';
@@ -168,9 +176,9 @@ function comprobarExposiciones() {
             $('#listali').append('<li id="exp' + i + '"><span>' + exp + '</span></li>');
         }
         $('#precio').addClass('precio');
-        $('#precio').html('<b>Su reserva tendrá un precio total de: ' + +precio+' euros.</b><p>Si los datos son los correctos,<b>puede enviar el formulario</b>.</p>');
+        $('#precio').html('<b>Su reserva tendrá un precio total de: ' + +precio + ' euros.</b><p>Si los datos son los correctos,<b>puede enviar el formulario</b>.</p>');
     }
-    this.precio=precio;
+    this.precio = precio;
 }
 // Define Accessibility Panel
 
@@ -311,6 +319,15 @@ document.addEventListener("click", function(event) {
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].classList.toggle("highlight");
         }
+        if (indent == 0) {
+            $('input[type="submit"]').css('background-color', 'yellow');
+            $('input[type="reset"]').css('background-color', 'yellow');
+            indent = 1;
+        } else {
+            indent = 0;
+            $('input[type="submit"]').css('background-color', '');
+            $('input[type="reset"]').css('background-color', '');
+        }
     }
 
     if (el == reset) {
@@ -335,10 +352,36 @@ document.addEventListener("click", function(event) {
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("highlight");
         }
+        indent = 0;
+        $('input[type="submit"]').css('background-color', '');
+        $('input[type="reset"]').css('background-color', '');
+        $('#aboutImg1').show();
+        $('#aboutImg2').show();
+        $('#indexImg2').css('width', '100%');
+        $('#indexImg1').css('height', '');
+        $('body').css('font-family', fonts.list[0]);
+        fonts.index = 0;
+
+        $('#rangeArticle1').val('255');
+        $('#rangeArticle2').val('255');
+        $('#rangeArticle3').val('255');
+        changeArticleBg();
+
+        if (accessPanel.classList.contains("visible") == true) {
+            $('body').css('margin-right', '25%')
+        } else {
+            $('body').css('margin-right', '');
+        }
     }
 
     if (el == remove) {
         document.styleSheets[0].disabled = true;
+        $('body').css('font-family', fonts.list[0]);
+        fonts.index = 0;
+        $('#aboutImg1').hide();
+        $('#aboutImg2').hide();
+        $('#indexImg2').css('width', '50%');
+        $('#indexImg1').css('height', '150px');
     }
 
     if (el == closeAccessPanel) {
@@ -470,11 +513,33 @@ document.addEventListener("keydown", function(event) {
                 bgColorSliders[i].value = 255;
                 textColorSliders[i].value = 0;
             }
+
+            $('#aboutImg1').show();
+            $('#aboutImg2').show();
+            $('#indexImg2').css('width', '100%');
+            $('#indexImg1').css('height', '');
+            $('body').css('font-family', fonts.list[0]);
+            fonts.index = 0;
+            $('#rangeArticle1').val('255');
+            $('#rangeArticle2').val('255');
+            $('#rangeArticle3').val('255');
+            changeArticleBg();
+
+            if (accessPanel.classList.contains("visible") == true) {
+                $('body').css('margin-right', '25%')
+            } else {
+                $('body').css('margin-right', '');
+            }
         }
         if (key == '69') {
             document.styleSheets[0].disabled = true;
+            $('body').css('font-family', fonts.list[0]);
+            fonts.index = 0;
+            $('#aboutImg1').hide();
+            $('#aboutImg2').hide();
+            $('#indexImg2').css('width', '50%');
+            $('#indexImg1').css('height', '150px');
         }
-
         if (key == '83') {
             var links = document.getElementsByTagName("a");
             for (var i = 0; i < links.length; i++) {
@@ -484,6 +549,17 @@ document.addEventListener("keydown", function(event) {
             for (var i = 0; i < buttons.length; i++) {
                 buttons[i].classList.toggle("highlight");
             }
+
+            if (indent == 0) {
+                $('input[type="submit"]').css('background-color', 'yellow');
+                $('input[type="reset"]').css('background-color', 'yellow');
+                indent++;
+            } else {
+                indent = 0;
+                $('input[type="submit"]').css('background-color', '');
+                $('input[type="reset"]').css('background-color', '');
+            }
+
         }
     }
 });
@@ -616,7 +692,7 @@ function validateForm() {
         if (formValid == 0) {
             return false;
         } else {
-            $('#precio').html('<b>Su reserva tendrá un precio total de: '+precio+' euros.</b>');
+            $('#precio').html('<b>Su reserva tendrá un precio total de: ' + precio + ' euros.</b>');
             $('#success').html('<b>Hola' + nombre + ' ' + apellidos + '</b>, ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para continuar con su reserva y confirmar los datos.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
             for (let i = 0; i < 6; i++) {
                 $('#exp' + i).remove();
@@ -635,7 +711,8 @@ function validateForm() {
         }
     }
 }
-function validateAbout(){
+
+function validateAbout() {
     if (window.confirm("¿Desea enviar el formulario?")) {
         //set initial value of formValid to true
         aboutValid = 1;
@@ -741,14 +818,14 @@ function transcribir() {
             '<p><b>[Música]</b>&nbsp;</p>' +
             '<p>Las colecciones del prado son el reflejo de los gustos de la <b>monarqu&iacute;a espa&ntilde;ola</b> que fue adquiriendo las piezas a lo largo de la historia como propietarios que eran alg&uacute;n que otro privilegio se permitieron por ejemplo entre 1827 y 1838 el museo cont&oacute; con una sala en la que se expon&iacute;an desnudos femeninos conocida como la sala reservada a la que s&oacute;lo pod&iacute;an acceder reyes y nobles pero no el p&uacute;blico en general se ve que la moral no era igual para todos como ya imaginar&aacute;n es imposible enumerar obras y artistas apuntamos aqu&iacute; el nombre de tres que han merecido una estatua en el exterior del museo.</p>' +
             '<p><b>[Música]</b>&nbsp;</p>' +
-            '<p><b>Murillo</b> en un sur, en el oeste <b>Vel&aacute;zquez</b> y <b>Goya</b> al norte. El &uacute;nico que mira de frente al museo y el autor con m&aacute;s obra colgada en nuestra pinacoteca m&aacute;s universal.'+
+            '<p><b>Murillo</b> en un sur, en el oeste <b>Vel&aacute;zquez</b> y <b>Goya</b> al norte. El &uacute;nico que mira de frente al museo y el autor con m&aacute;s obra colgada en nuestra pinacoteca m&aacute;s universal.' +
             '<p>Este edificio aleda&ntilde;o es el cas&oacute;n del buen <b>Retiro</b> tambi&eacute;n pertenece al <b>Prado</b> y tuvo el privilegio de acoger el <b>Guernica de Picasso</b> cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989. En 1992 fue trasladado a nuestro siguiente destino."</p>' +
             '<p><b>[Música]</b>&nbsp;</p>');
         $('#transcripcionboton').text('Ocultar Transcripción');
-        $('#audio').html('                <audio controls>'+
-        '<source src="audio/transcripcion.ogg" type="audio/ogg">'+
-        '<source src="audio/transcripcion.mp3" type="audio/mp3">'+
-        'Your browser does not support the audio element.</audio>');
+        $('#audio').html('                <audio controls>' +
+            '<source src="audio/transcripcion.ogg" type="audio/ogg">' +
+            '<source src="audio/transcripcion.mp3" type="audio/mp3">' +
+            'Your browser does not support the audio element.</audio>');
     } else {
         $('#transcripcion').html('');
         $('#audio').html('');

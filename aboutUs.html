@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Acerca de nosotros</title>
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Acerca de nosotros</title>
-    
 </head>
-<div id="accessPanel" class="accessibility-panel" accesskey="q">
-    <button id="toggleAccessPanel">
+
+<body id="inicio">
+    <!-- Accessibility Helper Panel -->
+    <div id="accessPanel" class="accessibility-panel" accesskey="q">
+        <button id="toggleAccessPanel">
     <span class="ada-icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path
@@ -21,69 +23,68 @@
       </svg>
     </span>
     <span class="toggleAccessPanelLabelInstruct">
-      <span class="toggleAccessPanelLabel" aria-label="Opciones de Accesibilidad Visual">Opciones de Accesibilidad
+      <span class="toggleAccessPanelLabel">Opciones de Accesibilidad
         Visual</span>
       <span class="toggleAccessPanelInstructions">(Pulsa la tecla Q)</span>
     </span>
   </button>
-    <h4>Opciones de Accesibilidad Visual</h4>
-    <div class="button-group">
-        <p><b>Pulsa para cerrar el menu.</b></p>
-        <button title="Cerrar el menú de opciones" id="closeAccessPanel" accesskey="esc">Cerrar Opciones (ESC)</button>
-    </div>
-    <div class="button-group">
-        <p><b>Pulsa para cambiar la letra.</b></p>
-        <button title="Cambiar el estilo de la letra" id="fontSwap" accesskey="a">Cambiar letra (A)</button>
-    </div>
-    <div class="button-group">
-        <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
-        <button title="Disminuir el tamaño de la letra" id="fontDecrease" accesskey="d">Disminuir (D)</button>
-        <button title="Aumentar el tamaño de la letra" id="fontIncrease" accesskey="f">Aumentar (F)</button>
-    </div>
-    <div class="button-group">
-        <p><b>Pulsa para subrayar los enlaces.</b></p>
-        <button title="Resaltar con color amarillo los enlaces" id="highlightLinks" accesskey="s">Subrayar enlaces
+        <p class="panelTitle">Opciones de Accesibilidad Visual</p>
+        <div class="button-group">
+            <p><b>Pulsa para cerrar el menu.</b></p>
+            <button title="Cerrar el menú de opciones" id="closeAccessPanel" accesskey="Q">Cerrar Opciones (Q)</button>
+        </div>
+        <div class="button-group">
+            <p><b>Pulsa para cambiar la letra.</b></p>
+            <button title="Cambiar el estilo de la letra" id="fontSwap" accesskey="a">Cambiar letra (A)</button>
+        </div>
+        <div class="button-group">
+            <p><b>Pulsa para cambiar el tamaño de la letra.</b></p>
+            <button title="Disminuir el tamaño de la letra" id="fontDecrease" accesskey="d">Disminuir (D)</button>
+            <button title="Aumentar el tamaño de la letra" id="fontIncrease" accesskey="f">Aumentar (F)</button>
+        </div>
+        <div class="button-group">
+            <p><b>Pulsa para subrayar los enlaces.</b></p>
+            <button title="Resaltar con color amarillo los enlaces" id="highlightLinks" accesskey="s">Subrayar enlaces
       (S)</button>
-    </div>
+        </div>
 
-    <div class="button-group">
-        <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
-        <button title="Reiniciar el estilo de la página" id="reset" accesskey="r">Reiniciar (R)</button>
-        <button title="Eliminar el estilo de la página" id="remove" accesskey="e">Eliminar (E)</button>
+        <div class="button-group">
+            <p><b>Pulsa para reiniciar o eliminar los estilos.</b></p>
+            <button title="Reiniciar el estilo de la página" id="reset" accesskey="r">Reiniciar (R)</button>
+            <button title="Eliminar el estilo de la página" id="remove" accesskey="e">Eliminar (E)</button>
+        </div>
+        <div class="contrastTextChange button-group">
+            <p><b>Cambia el contraste del texto.</b></p>
+            <button title="Iluminar el color del texto" id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
+            <button title="Oscurecer el color del texto" id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
+        </div>
+        <div class="rangeSliders">
+            <p>Rojo:</p> <input class="rangeText" type="range" min="0" max="255" value="0">
+            <p>Verde:</p> <input class="rangeText" type="range" min="0" max="255" value="0">
+            <p>Azul:</p> <input class="rangeText" type="range" min="0" max="255" value="0">
+        </div>
+        <div class="contrastBgChange button-group">
+            <p><b>Cambia el contraste del fondo.</b></p>
+            <button title="Iluminar el fondo" id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
+            <button title="Oscurecer el fondo" id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
+        </div>
+        <div class="rangeSliders">
+            <p>Rojo:</p> <input class="rangeBg" type="range" min="0" max="255" value="155">
+            <p>Verde:</p> <input class="rangeBg" type="range" min="0" max="255" value="195">
+            <p>Azul:</p> <input class="rangeBg" type="range" min="0" max="255" value="253">
+        </div>
+        <div class="contrastBgArticleChange button-group">
+            <p><b>Cambia el contraste del artículo.</b></p>
+            <button title="Iluminar el color del fondo del artículo" id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="b">Iluminar artículo(B)</button>
+            <button title="Oscurecer el color del fondo del artículo" id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="n">Oscurecer artículo (N)</button>
+        </div>
+        <div class="rangeSliders">
+            <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+            <p>Verde:</p> <input id="rangeArticle2" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+            <p>Azul:</p> <input id="rangeArticle3" class="rangeArticleBg" type="range" min="0" max="255" value="255">
+        </div>
     </div>
-    <div class="contrastTextChange button-group">
-        <p><b>Cambia el contraste del texto.</b></p>
-        <button title="Iluminar el color del texto" id="contrastTextLighten" accesskey="z">Iluminar texto (Z)</button>
-        <button title="Oscurecer el color del texto" id="contrastTextDarken" accesskey="x">Oscurecer texto (X)</button>
-    </div>
-    <div class="rangeSliders">
-        <p>Rojo:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
-        <p>Verde:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
-        <p>Azul:</p> <input id="range" class="rangeText" type="range" min="0" max="255" value="0">
-    </div>
-    <div class="contrastBgChange button-group">
-        <p><b>Cambia el contraste del fondo.</b></p>
-        <button title="Iluminar el fondo" id="contrastBgLighten" accesskey="c">Iluminar fondo (C)</button>
-        <button title="Oscurecer el fondo" id="contrastBgDarken" accesskey="v">Oscurecer fondo (V)</button>
-    </div>
-    <div class="rangeSliders">
-        <p>Rojo:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="155">
-        <p>Verde:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="195">
-        <p>Azul:</p> <input id="range" class="rangeBg" type="range" min="0" max="255" value="253">
-    </div>
-    <div class="contrastBgArticleChange button-group">
-        <p><b>Cambia el contraste del artículo.</b></p>
-        <button title="Iluminar el color del fondo del artículo" id="contrastBgArticleLighten" onclick="lightenArticle();" accesskey="b">Iluminar artículo(B)</button>
-        <button title="Oscurecer el color del fondo del artículo" id="contrastBgArticleDarken" onclick="darkenArticle();" accesskey="n">Oscurecer artículo (N)</button>
-    </div>
-    <div class="rangeSliders">
-        <p>Rojo:</p> <input id="rangeArticle1" class="rangeArticleBg" type="range" min="0" max="255" value="255">
-        <p>Verde:</p> <input id="rangeArticle2" class="rangeArticleBg" type="range" min="0" max="255" value="255">
-        <p>Azul:</p> <input id="rangeArticle3" class="rangeArticleBg" type="range" min="0" max="255" value="255">
-    </div>
-</div>
-<!-- Accessibility Helper Panel - End -->
-<body id="inicio">
+    <!-- Accessibility Helper Panel - End -->
     <script src="js/index.js"></script>
     <div id="content-wrapper">
         <div class="navegacion">
@@ -94,76 +95,80 @@
                 <h1 class="title">Museo del prado</h1>
             </div>
         </div>
-        <h2 id="menu" class="center">Menú - Contacto</h2>
+
         <nav>
+            <h2 id="menu" class="center">Menú - Contacto</h2>
             <ul class="menu">
                 <li><a title="Accede al formulario de contacto" href="#contacto"><b>1.Contacta con nosotros</b></a></li>
                 <li><a title="Accede a la localización del museo" href="#localizacion"><b>2.Nuestra localización</b></a></li>
             </ul>
-            </nav>
+        </nav>
         <h2 id="contacto" class="center">1.Contacta con nosotros</h2>
         <div class="messege_area">
             <div class="container" id="aboutus-content">
                 <div class="about1">
-                <img src="img/contact_us_img.jpg" alt="Contacte con nosotros" longdesc="Icono para contactar con nosotros">
-                <img src="img/about-us.png" alt="Imagen del Museo del Prado" longdesc="Es el edificio del Museo">
+                    <img src="img/contact_us_img.jpg" id="aboutImg1" alt="Logo de contacto">
+                    <img src="img/about-us.png" id="aboutImg2" alt="Fachada del Museo del Prado">
                 </div>
                 <div class="about1">
                     <div>
                         <h3>Envía tu mensaje</h3>
                         <div class="seperator"></div>
                     </div>
-                        <form action="#" name="myForm" id="formAbout" onsubmit="return validateAbout()" method="get">
-                            <p>Los campos obligatorios se indican con un <span class="reqField">*</span>.</p>
-                            <p>
-                                <label for="nombre"><b>Nombre:</b><span class="reqField">*</span><span class="element-invisible"
+                    <form action="#" name="myForm" id="formAbout" onsubmit="return validateAbout()" method="get">
+                        <p>Los campos obligatorios se indican con un <span class="reqField">*</span>.</p>
+                        <p>
+                            <label for="nombre"><b>Nombre:</b><span class="reqField">*</span><span class="element-invisible"
                           id="nombreErrorHidden"></span></label><br />
-                                <input title="Escriba su nombre" id="nombre" placeholder="Escriba su nombre" type="text" name="textfield" aria-required="true" />
-                                <span class="errorMsg" id="nombreError"></span>
-                            </p>
-                            <p><label for="apellidos"><b>Apellidos:</b><span class="reqField">*</span><span class="element-invisible"
+                            <input title="Escriba su nombre" id="nombre" placeholder="Escriba su nombre" type="text" name="textfield" aria-required="true" />
+                            <span class="errorMsg" id="nombreError"></span>
+                        </p>
+                        <p><label for="apellidos"><b>Apellidos:</b><span class="reqField">*</span><span class="element-invisible"
                           id="apellidosErrorHidden"></span></label><br />
-                                <input title="Escriba sus apellidos" id="apellidos" type="text" placeholder="Escriba sus apellidos" name="textfield" aria-required="true" />
-        
-                                <span class="errorMsg" id="apellidosError"></span>
-        
-                            </p>
-                            <p><label for="email"><b>Email:</b><span class="reqField">*</span><span class="element-invisible"
+                            <input title="Escriba sus apellidos" id="apellidos" type="text" placeholder="Escriba sus apellidos" name="textfield" aria-required="true" />
+
+                            <span class="errorMsg" id="apellidosError"></span>
+
+                        </p>
+                        <p><label for="email"><b>Email:</b><span class="reqField">*</span><span class="element-invisible"
                           id="emailErrorHidden"></span></label><br />
-                                <input id="email" title="Escriba su email" type="email" name="textfield" placeholder="Escriba su email" aria-required="true" />
-        
-                                <span class="errorMsg" id="emailError"></span>
-        
-                            </p>
-                            <div><label for="mensaje"><b>Escriba su consulta:</b><span class="reqField">*</span></label><br />
-                                <textarea id="mensaje" title="Escriba su consulta aqui" id="mensaje" placeholder="Escriba aquí su consulta." type="text" name="mensaje" cols="50" rows="20" aria-describedby="sample-tip"></textarea>
-                                <div>Le ayudaremos con cualquier consulta.</div>
-                                <br>
-                                <span class="errorMsg" id="mensajeError"></span>
-                            </div>
+                            <input id="email" title="Escriba su email" type="email" name="textfield" placeholder="Escriba su email" aria-required="true" />
+
+                            <span class="errorMsg" id="emailError"></span>
+
+                        </p>
+                        <div><label for="mensaje"><b>Escriba su consulta:</b><span class="reqField">*</span></label><br />
+                            <textarea id="mensaje" title="Escriba su consulta aqui" placeholder="Escriba aquí su consulta." name="mensaje" cols="50" rows="20"></textarea>
+                            <div>Le ayudaremos con cualquier consulta.</div>
                             <br>
-                            <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario" />
-                            <input title="Reiniciar campos del formulario" type="reset" id="resetAbout" name="reset" class="submit" value="Reiniciar formulario" />
-                            </form>
-                            <p id="success"></p>
+                            <span class="errorMsg" id="mensajeError"></span>
+                        </div>
+                        <br>
+                        <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario" />
+                        <input title="Reiniciar campos del formulario" type="reset" id="resetAbout" name="reset" class="submit" value="Reiniciar formulario" />
+                    </form>
+                    <p id="success"></p>
                 </div>
-                                
+
             </div>
-                    
-                        <h2 id="localizacion" class="center">2.Nuestra Localización</h2>
-                    <div id="mapa">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.776792626351!2d-3.693927334604173!3d40.41379527936551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42289d66d8a2ed%3A0x1094f07d93ad885a!2sMuseo%20Nacional%20del%20Prado!5e0!3m2!1ses!2ses!4v1621780479674!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <div class="desc-foto">
-                        <p>Podrá encontrar el museo en la siguiente dirección:</p>
-                        <p><b>Calle de Ruiz de Alarcón, 23, 28014</b></p>
-                        <p><b>Madrid, España</b></p>
-                    </div>
-                    
+            <a class="volver" title="Volver al menú" href="#inicio"><b>Volver al menú</b></a>
+
+            <h2 id="localizacion" class="center">2.Nuestra Localización</h2>
+            <div id="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.776792626351!2d-3.693927334604173!3d40.41379527936551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42289d66d8a2ed%3A0x1094f07d93ad885a!2sMuseo%20Nacional%20del%20Prado!5e0!3m2!1ses!2ses!4v1621780479674!5m2!1ses!2ses"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="desc-foto">
+                <p>Podrá encontrar el museo en la siguiente dirección:</p>
+                <p><b>Calle de Ruiz de Alarcón, 23, 28014</b></p>
+                <p><b>Madrid, España</b></p>
+            </div>
+            <a class="volver" title="Volver al menú" href="#inicio"><b>Volver al menú</b></a>
         </div>
-            
-    </div> 
- 
+
+    </div>
+
 
 </body>
+
 </html>

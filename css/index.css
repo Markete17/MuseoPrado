@@ -299,45 +299,52 @@ td {
 .form-botones {
     text-align: center;
 }
-.precio{
-    border:1px solid black;
-    text-align:center;
-    margin-left: 30%;
-    width: 50%;
+
+.precio {
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
     height: 100%;
+    padding: 2%;
 }
 
-#aboutus-content{
+#aboutus-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-#aboutus-content img{
+#aboutus-content img {
     width: 80%;
 }
 
-
-#mapa{
+#mapa {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.desc-pamuk{
+.desc-pamuk {
     margin-left: 38%;
 }
-.desc-foto{
+
+.desc-foto {
     text-align: center;
 }
-.enlace{
+
+.enlace {
     text-align: center;
 }
-.enlace a{
+
+.enlace a {
     border: 1px solid rgb(0, 0, 0);
     margin: 2px;
     padding: 5px;
     background: rgb(243, 243, 243);
     text-decoration: none;
     cursor: pointer;
+}
+
+.panelTitle {
+    font-size: 24px;
 }
