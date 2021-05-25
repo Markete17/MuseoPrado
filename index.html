@@ -97,7 +97,7 @@
         <nav>
             <!--navigation-->
             <h2 class="center">Menú - Inicio</h2>
-            <ul class="menu">
+            <ul class="menu" role="menu">
                 <li><a title="Accede a la presentación" href="#presentacion"><b>1.Ir a Presentación</b></a></li>
                 <li><a title="Accede al horario" href="#horario"><b>2.Ir a Horario</b></a></li>
                 <li><a title="Accede a la lista de precios" href="#precios"><b>3.Ir a Precios</b></a></li>
@@ -263,14 +263,14 @@
 
                     </p>
                     <div><label for="discapacidad"><b>Escriba su discapacidad</b></label><br />
-                        <input title="¿Tiene alguna discapacidad?" type="text" id="discapacidad" name="discapacidad" placeholder="Escriba su discapacidad" aria-describedby="sample-tip" />
-                        <div role="tooltip">Ayuda: discapacidad auditiva, visual, cognitiva, motora ...</div>
+                        <input title="¿Tiene alguna discapacidad?" type="text" id="discapacidad" name="discapacidad" placeholder="Escriba su discapacidad" aria-describedby="discapacidad-tip" />
+                        <div role="tooltip" id="discapacidad-tip">Ayuda: discapacidad auditiva, visual, cognitiva, motora ...</div>
                         <div>Le ayudaremos a seguir su exposición.</div>
                     </div>
                     <div><label for="fecha"><b>Fecha de asistencia</b><span class="reqField">*</span><span class="errorMsg"
                   id="fechaErrorHidden"></span></label><br />
-                        <input title="Escriba la fecha de asistencia. Día(2 digitos)/Mes(2 digitos)/Año(4 digitos)" type="date" id="fecha" onchange="cambiarFecha();" class="picker" aria-describedby="sample-tip">
-                        <div role="tooltip" id="sample-tip">Ayuda: por ejemplo, 20/08/2021</div>
+                        <input title="Escriba la fecha de asistencia. Día(2 digitos)/Mes(2 digitos)/Año(4 digitos)" type="date" id="fecha" onchange="cambiarFecha();" class="picker" aria-describedby="fecha-tip">
+                        <div role="tooltip" id="fecha-tip">Ayuda: por ejemplo, 20/08/2021</div>
                         <span class="fechaMsg" id="fechaError"></span>
                         <div class="result"></div>
                     </div>

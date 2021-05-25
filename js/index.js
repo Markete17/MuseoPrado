@@ -822,7 +822,7 @@ function transcribir() {
             '<p>Este edificio aleda&ntilde;o es el cas&oacute;n del buen <b>Retiro</b> tambi&eacute;n pertenece al <b>Prado</b> y tuvo el privilegio de acoger el <b>Guernica de Picasso</b> cuando la emblem&aacute;tica obra del pintor malague&ntilde;o volvi&oacute; a Espa&ntilde;a en 1989. En 1992 fue trasladado a nuestro siguiente destino."</p>' +
             '<p><b>[Música]</b>&nbsp;</p>');
         $('#transcripcionboton').text('Ocultar Transcripción');
-        $('#audio').html('                <audio controls>' +
+        $('#audio').html('                Audio del video.<br><audio controls>' +
             '<source src="audio/transcripcion.ogg" type="audio/ogg">' +
             '<source src="audio/transcripcion.mp3" type="audio/mp3">' +
             'Your browser does not support the audio element.</audio>');
