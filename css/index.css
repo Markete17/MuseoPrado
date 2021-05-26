@@ -9,6 +9,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+p{
+    line-height: 32px;
+}
 
 #content-wrapper {
     background: white;
@@ -347,4 +350,8 @@ td {
 
 .panelTitle {
     font-size: 24px;
+}
+
+a:hover{
+    background-color: rgb(172, 241, 236);
 }

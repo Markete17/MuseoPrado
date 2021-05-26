@@ -57,10 +57,13 @@
 }
 
 .imagen a {
-	color: #fff;
+	color: rgb(255, 255, 255);
 	font-size: 40px;
 	text-decoration: none;
 	margin: 0 10px;
+}
+.imagen a:hover{
+	background-color: black;
 }
 
 .imagen a:nth-child(2) {
