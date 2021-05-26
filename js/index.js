@@ -693,7 +693,7 @@ function validateForm() {
             return false;
         } else {
             $('#precio').html('<b>Su reserva tendrá un precio total de: ' + precio + ' euros.</b>');
-            $('#success').html('<b>Hola' + nombre + ' ' + apellidos + '</b>, ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para continuar con su reserva y confirmar los datos.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
+            $('#success').html('<b>Hola ' + nombre + ' ' + apellidos + '</b>, ha enviado <b>correctamente</b> el formulario. Revisa la bandeja de entrada del correo: <b>' + email + '</b> para continuar con su reserva y confirmar los datos.</p><p><b>Gracias por confiar en nosotros. Disfrute de la visita.</b>');
             for (let i = 0; i < 6; i++) {
                 $('#exp' + i).remove();
             }

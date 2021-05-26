@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <title>Acerca de nosotros</title>
@@ -87,12 +87,12 @@
     <!-- Accessibility Helper Panel - End -->
     <script src="js/index.js"></script>
     <div id="content-wrapper">
-        <div class="navegacion">
+        <div role="navigation" class="navegacion">
             <div id="block1">
                 <b>Navegación:</b> <a title="Ir a inicio" href="index.html#contacto" class="navtext">Volver a Inicio</a> / <a title="Ir a contacto" href="aboutUs.html" class="navtext">Contacto</a>
             </div>
-            <div id="block2">
-                <h1 class="title">Museo del prado</h1>
+            <div role="banner" id="block2">
+                <h1  class="title">Museo del prado</h1>
             </div>
         </div>
 
@@ -147,7 +147,7 @@
                         <input title="Enviar el formulario" type="submit" name="submit" class="submit" value="Enviar formulario" />
                         <input title="Reiniciar campos del formulario" type="reset" id="resetAbout" name="reset" class="submit" value="Reiniciar formulario" />
                     </form>
-                    <p id="success"></p>
+                    <p roles="status" id="success"></p>
                 </div>
 
             </div>
